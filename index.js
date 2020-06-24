@@ -26,23 +26,49 @@ console.log("INNERBot_Online");
 const bot = new Discord.Client();
 
 bot.on('message', (message) => {
-    if (message.content.startsWith("!kick ")) {
-        if (message.mentions.members.first()) {
-            message.mentions.members.first.kick().then((member) => {
-                message.channel.send(":wave: " + member.displayName + " has been successfully kicked :point_right: ");
-            }).catch(() => {
-                message.channel.send("I do not have permissions to do this");
-            });
+    if(message.content.startWith('!kick')) {
+        if(message.channel.type === 'DM') {
+            //Fist check if message channel is not direct message, because you cant kick out of guide 
+            message.channel.send('This command can use only in guide');
+            return;
+        };
+
+        //Then check if user have permissions to do that
+        if(!message.member.hasPermission('KICK_MEMBERS')) {
+            message.channel.send('You have no permissions to do that');
+            return;
+        };
+
+        //const a member, wich you need yo kick (its fist mention message member)
+        let mentionMember = message.mentions.members.first();
+        //If user dont mention a member, that show him this error msg
+        if(!mentionMember) {
+            message.channel.send('pls mention member witch you need to kick');
+            return;
         }
-    }else if (message.content.startsWith("!ban ")) {
-        if (message.mentions.members.first()) {
-            message.mentions.members.first.ban().then((member) => {
-                message.channel.send(":wave: " + member.displayName + " has been successfully banned :point_right: ");
-            }).catch(() => {
-                message.channel.send("I do not have permissions to do this");
-            });
-        }
-    }
+
+        //Get the highest role of user for compare
+        let authorHighestRole = message.member.highestRole.position;
+        let mentionHighestRole = mentionMember.highestRole.position;
+
+        //If mention user have same or higher role, so show this error msg
+        if(mentionHighestRole >= authorHighestRole) {
+            message.channel.send('You can`t kick members with equal or higher position');
+            return;
+        };
+
+        //Check if your bot can`t kick this user, so that show this error msg 
+        if(!mentionMember.kickable) {
+            message.channel.send('I have no permissions to kick this user');
+            return
+        };
+
+        //If all steps are completed successfully try kick this user
+        mentionMember.kick()
+            .then(() => console.log(`Kicked ${member.displayName}`))
+            .catch(console.error);
+    };
+})
     var message_content = message.content.toLowerCase();
     for (var i = 0; i < forbiddenWords.length; i++) {
       if (message_content.includes(forbiddenWords[i])) {
@@ -213,6 +239,5 @@ else{message.member.roles.add(warn_1)}
     }
     else if (message.content == '!roles') {
         console.log(message.guild.roles);
-    }  
-});
+    }
 bot.login(process.env.token)
