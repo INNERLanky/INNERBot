@@ -68,7 +68,6 @@ bot.on('message', (message) => {
             .then(() => console.log(`Kicked ${member.displayName}`))
             .catch(console.error);
     };
-})
     var message_content = message.content.toLowerCase();
     for (var i = 0; i < forbiddenWords.length; i++) {
       if (message_content.includes(forbiddenWords[i])) {
@@ -240,4 +239,5 @@ else{message.member.roles.add(warn_1)}
     else if (message.content == '!roles') {
         console.log(message.guild.roles);
     }
+})
 bot.login(process.env.token)
