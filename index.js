@@ -17,6 +17,7 @@ const warn_2 = '725124418568716360';
 const warn_3 = '725124483668639794';
 const warn_4 = '725124499267387452';
 const warn_5 = '725124515503538236';
+const muted = ''
 console.clear
 console.log("INNERBot_Online");
 //embed help
