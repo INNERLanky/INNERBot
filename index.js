@@ -26,7 +26,7 @@ console.log("INNERBot_Online");
 const bot = new Discord.Client();
 
 bot.on('message', (message) => {
-    if(message.content.startWith('!kick')) {
+    if(message.content.includes('!kick')) {
         if(message.channel.type === 'DM') {
             //Fist check if message channel is not direct message, because you cant kick out of guide 
             message.channel.send('This command can use only in guide');
