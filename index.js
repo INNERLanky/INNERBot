@@ -100,7 +100,7 @@ bot.on('message', (message) => {
         };
 
         //Then check if user have permissions to do that
-        if(message.member.roles.cache.hasPermission(Admin)) {
+        if(message.member.roles.cache.has(Admin)) {
 
             //const a member, wich you need yo kick (its fist mention message member)
         let mentionMember = message.mentions.members.first();
@@ -109,12 +109,7 @@ bot.on('message', (message) => {
             message.channel.send('mention the member you would like to warn');
             return;
         }
-
-        //Check if your bot can`t kick this user, so that show this error msg 
-        if(!mentionMember.kickable) {
-            message.channel.send('I dont have permissions to warn this user');
-            return
-        };
+        ;
 
         //If all steps are completed successfully try kick this user
         if(message.member.roles.cache.has(warn_1)) {
