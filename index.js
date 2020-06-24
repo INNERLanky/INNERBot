@@ -55,7 +55,7 @@ bot.on('message', (message) => {
 
         //If all steps are completed successfully try kick this user
         mentionMember.kick()
-            .then(() => message.reply('user has been kicked'))
+            message.reply('user has been kicked')
             .catch(console.error);
         };
         
@@ -88,7 +88,7 @@ bot.on('message', (message) => {
 
         //If all steps are completed successfully try kick this user
         mentionMember.ban()
-            .then(() => message.reply('user has been banned'))
+            message.reply('user has been banned')
             .catch(console.error);
         };
         
@@ -139,7 +139,7 @@ bot.on('message', (message) => {
 }//warn 1 brackets
 else{message.member.roles.add(warn_1)}
 }}
-then(() => message.reply('user has been warned'))
+message.reply('user has been warned')
 .catch(console.error);
 
     var message_content = message.content.toLowerCase();
