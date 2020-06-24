@@ -133,9 +133,9 @@ bot.on('message', (message) => {
   else {message.member.roles.add(warn_2)}
 }//warn 1 brackets
 else{message.member.roles.add(warn_1)}
-}}
 message.reply('user has been warned')
 .catch(console.error);
+}}
 
     var message_content = message.content.toLowerCase();
     for (var i = 0; i < forbiddenWords.length; i++) {
