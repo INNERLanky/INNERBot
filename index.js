@@ -18,11 +18,14 @@ const warn_4 = '725124499267387452';
 const warn_5 = '725124515503538236';
 console.clear
 console.log("INNERBot_Online");
-
+//add !mute - muted !unmute
+//embed help
+//dm me 5+ warns
 
 const bot = new Discord.Client();
 
 bot.on('message', (message) => {
+    if (message.content == '!mute')
     var message_content = message.content.toLowerCase();
     for (var i = 0; i < forbiddenWords.length; i++) {
       if (message_content.includes(forbiddenWords[i])) {
@@ -38,7 +41,8 @@ bot.on('message', (message) => {
                 //warn 4
                   if(message.member.roles.cache.has(warn_5)) {
                   //warn 5
-                  //dm me
+                  mention = '414826002280087552';
+                  mention.send('Someone Has Sweared over 5 times!')
           }//warn 5 brackets
         else {message.member.roles.add(warn_5)}
       }//warn 4 brackets
@@ -191,7 +195,7 @@ else{message.member.roles.add(warn_1)}
         message.reply('Color Assigned');
         console.log('Color Assigned');
     }
-    else if (message.content == '!color reset') {
+    else if (message.content == '!color reset' || '!color white') {
         message.member.roles.remove(RED);
         message.member.roles.remove(ORANGE);
         message.member.roles.remove(YELLOW);
@@ -207,12 +211,6 @@ else{message.member.roles.add(warn_1)}
     }
     else if (message.content == '!roles') {
         console.log(message.guild.roles);
-    }
-    
-        
-    
-
-        
-    
+    }  
 });
 bot.login(process.env.token)
