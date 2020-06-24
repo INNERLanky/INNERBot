@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-const forbiddenWords =["shit", "fuck", "bitch", "asshole", "dick","damn"]
+const forbiddenWords =["shit", "fuck", "bitch", "asshole", "dick", "damn"]
 const RED = '723664452003692604';
 const ORANGE = '723664555905122374';
 const YELLOW = '723664739263053885';
@@ -25,7 +25,6 @@ console.log("INNERBot_Online");
 const bot = new Discord.Client();
 
 bot.on('message', (message) => {
-    if (message.content == '!mute')
     var message_content = message.content.toLowerCase();
     for (var i = 0; i < forbiddenWords.length; i++) {
       if (message_content.includes(forbiddenWords[i])) {
