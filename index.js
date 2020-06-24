@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 
-const forbiddenWords =["shit", "fuck", "bitch", "asshole", "dick", "damn"]
+const forbiddenWords =["shit", "fuck", "bitch", "asshole", "dick", "damn"];
+const Admin = '603011023040938021'
 const RED = '723664452003692604';
 const ORANGE = '723664555905122374';
 const YELLOW = '723664739263053885';
@@ -25,6 +26,23 @@ console.log("INNERBot_Online");
 const bot = new Discord.Client();
 
 bot.on('message', (message) => {
+    if (msg.content.startsWith("!kick ")) {
+        if (msg.mentions.members.first()) {
+            msg.mentions.members.first.kick().then((member) => {
+                msg.channel.send(":wave: " + member.displayName + " has been successfully kicked :point_right: ");
+            }).catch(() => {
+                msg.channel.send("I do not have permissions to do this");
+            });
+        }
+    }else if (msg.content.startsWith("!ban ")) {
+        if (msg.mentions.members.first()) {
+            msg.mentions.members.first.ban().then((member) => {
+                msg.channel.send(":wave: " + member.displayName + " has been successfully banned :point_right: ");
+            }).catch(() => {
+                msg.channel.send("I do not have permissions to do this");
+            });
+        }
+    }
     var message_content = message.content.toLowerCase();
     for (var i = 0; i < forbiddenWords.length; i++) {
       if (message_content.includes(forbiddenWords[i])) {
@@ -40,8 +58,7 @@ bot.on('message', (message) => {
                 //warn 4
                   if(message.member.roles.cache.has(warn_5)) {
                   //warn 5
-                  mention = '414826002280087552';
-                  mention.send('Someone Has Sweared over 5 times!')
+                  //dm me-('Someone Has Sweared over 5 times!')
           }//warn 5 brackets
         else {message.member.roles.add(warn_5)}
       }//warn 4 brackets
