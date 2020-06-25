@@ -1,1 +1,1 @@
-INNERBot: INNERBot.js
+INNERBot: index.js
