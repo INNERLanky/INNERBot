@@ -112,27 +112,27 @@ bot.on('message', (message) => {
         ;
 
         //If all steps are completed successfully try kick this user
-        if(mentionMember.member.roles.cache.has(warn_1)) {
+        if(mentionMember.roles.cache.has(warn_1)) {
             //warn 1
-            if(mentionMember.member.roles.cache.has(warn_2)) {
+            if(mentionMember.roles.cache.has(warn_2)) {
               //warn 2
-              if(mentionMember.member.roles.cache.has(warn_3)) {
+              if(mentionMember.roles.cache.has(warn_3)) {
               //warn 3
-                if(mentionMember.member.roles.cache.has(warn_4)) {
+                if(mentionMember.roles.cache.has(warn_4)) {
                 //warn 4
-                  if(mentionMember.member.roles.cache.has(warn_5)) {
+                  if(mentionMember.roles.cache.has(warn_5)) {
                   //warn 5
                   //dm me-('Someone Has Sweared over 5 times!')
           }//warn 5 brackets
-        else {mentionMember.member.roles.add(warn_5)}
+        else {mentionMember.roles.add(warn_5)}
       }//warn 4 brackets
-      else {mentionMember.member.roles.add(warn_4)}
+      else {mentionMember.roles.add(warn_4)}
     }//warn 3 brackets
-    else {mentionMember.member.roles.add(warn_3)}
+    else {mentionMember.roles.add(warn_3)}
   }//warn 2 brackets
-  else {mentionMember.member.roles.add(warn_2)}
+  else {mentionMember.roles.add(warn_2)}
 }//warn 1 brackets
-else{mentionMember.member.roles.add(warn_1)}
+else{mentionMember.roles.add(warn_1)}
 message.reply('user has been warned')
 .catch(console.error);
 }}
@@ -310,7 +310,3 @@ else{message.member.roles.add(warn_1)}
     }
 })
 bot.login(process.env.token)
-//npm init
-//node .
-//npm i discord.js
-//ctrl+c to quit terminal
