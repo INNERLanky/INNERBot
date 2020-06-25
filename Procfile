@@ -1,1 +1,1 @@
-INNERBot: index.js
+Worker: index.js

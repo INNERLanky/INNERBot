@@ -310,3 +310,7 @@ else{message.member.roles.add(warn_1)}
     }
 })
 bot.login(process.env.token)
+//npm init
+//node .
+//npm i discord.js
+//ctrl+c to quit terminal
