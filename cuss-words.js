@@ -1,1 +1,0 @@
-const forbiddenWords =["shit", "fuck", "bitch", "asshole", "dick", "damn"];

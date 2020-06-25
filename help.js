@@ -1,3 +1,0 @@
-bot.on('message', (message) => {
-    
-})
