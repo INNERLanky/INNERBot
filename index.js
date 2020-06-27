@@ -59,7 +59,8 @@ bot.on('message', (message) => {
 
         //If all steps are completed successfully try kick this user
         mentionMember.roles.add(muted)
-
+    }}
+    
         if(message.content.includes('!unmute')) {
             if(message.channel.type === 'DM') {
                 //Fist check if message channel is not direct message, because you cant kick out of guide 
@@ -85,7 +86,7 @@ bot.on('message', (message) => {
             .catch(console.error);
             }
             else {message.reply('user is not muted')}
-}}}}
+}}
     if(message.content.includes('!kick')) {
         if(message.channel.type === 'DM') {
             //Fist check if message channel is not direct message, because you cant kick out of guide 
