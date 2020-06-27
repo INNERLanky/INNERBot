@@ -17,15 +17,75 @@ const warn_2 = '725124418568716360';
 const warn_3 = '725124483668639794';
 const warn_4 = '725124499267387452';
 const warn_5 = '725124515503538236';
-const muted = ''
+const muted = '709822471880179773';
+const fan = '717764459871076361';
+
 console.clear
 console.log("INNERBot_Online");
 //embed help
-//@me 5+
+//music
 
 const bot = new Discord.Client();
 
+bot.on('guildMemberAdd', (guildMember) => {
+    guildMember.roles.add(fan)
+})
+
+bot.on('channelCreate', (newChannel) => {
+    newChannel.overwritePermissions(
+        muted,
+        { 'READ_MESSAGES': false })
+    })
+
 bot.on('message', (message) => {
+    if(message.content.includes('!mute')) {
+        if(message.channel.type === 'DM') {
+            //Fist check if message channel is not direct message, because you cant kick out of guide 
+            message.channel.send('This command can use only in guide');
+            return;
+        };
+
+        //Then check if user have permissions to do that
+        if(message.member.roles.cache.has(Admin)) {
+
+            //const a member, wich you need yo kick (its fist mention message member)
+        let mentionMember = message.mentions.members.first();
+        //If user dont mention a member, that show him this error msg
+        if(!mentionMember) {
+            message.channel.send('mention the member you would like to warn');
+            return;
+        }
+        ;
+
+        //If all steps are completed successfully try kick this user
+        mentionMember.roles.add(muted)
+
+        if(message.content.includes('!unmute')) {
+            if(message.channel.type === 'DM') {
+                //Fist check if message channel is not direct message, because you cant kick out of guide 
+                message.channel.send('This command can use only in guide');
+                return;
+            };
+    
+            //Then check if user have permissions to do that
+            if(message.member.roles.cache.has(Admin)) {
+    
+                //const a member, wich you need yo kick (its fist mention message member)
+            let mentionMember = message.mentions.members.first();
+            //If user dont mention a member, that show him this error msg
+            if(!mentionMember) {
+                message.channel.send('mention the member you would like to warn');
+                return;
+            }
+            ;
+            if(mentionMember.roles.cache.has(muted)) {
+            //If all steps are completed successfully try kick this user
+            mentionMember.roles.remove(muted)
+            message.reply('user has been unmuted')
+            .catch(console.error);
+            }
+            else {message.reply('user is not muted')}
+}}}}
     if(message.content.includes('!kick')) {
         if(message.channel.type === 'DM') {
             //Fist check if message channel is not direct message, because you cant kick out of guide 
@@ -122,7 +182,7 @@ bot.on('message', (message) => {
                 //warn 4
                   if(mentionMember.roles.cache.has(warn_5)) {
                   //warn 5
-                  //dm me-('Someone Has Sweared over 5 times!')
+                  message.reply('this person has over 5 warnings!')
           }//warn 5 brackets
         else {mentionMember.roles.add(warn_5)}
       }//warn 4 brackets
@@ -152,7 +212,7 @@ message.reply('user has been warned')
                 //warn 4
                   if(message.member.roles.cache.has(warn_5)) {
                   //warn 5
-                  //dm me-('Someone Has Sweared over 5 times!')
+                  message.reply('has over five warnings, <@414826002280087552>')
           }//warn 5 brackets
         else {message.member.roles.add(warn_5)}
       }//warn 4 brackets
