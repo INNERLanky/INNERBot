@@ -54,7 +54,7 @@ channel.send(exampleEmbed);
     })
 
 bot.on('message', (message) => {
-    if (message.content == '!help')
+    if (message.content == '!help') {
     const Embedcolorred = new Discord.MessageEmbed()
 	.setColor('#ff0000')
     .setAuthor('!color red')
@@ -95,7 +95,7 @@ bot.on('message', (message) => {
     channel.send(Embedcolordarkblue);
     channel.send(Embedcolorpurple);
     channel.send(Embedcolorpink);
-})
+}})
 
 bot.on('guildMemberAdd', (guildMember) => {
     guildMember.roles.add(fan)
