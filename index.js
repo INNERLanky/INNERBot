@@ -54,11 +54,48 @@ channel.send(exampleEmbed);
     })
 
 bot.on('message', (message) => {
-const Embedcolorred = new Discord.MessageEmbed()
-	.setColor('#0099ff')
-	.setAuthor('!color red')
+    if (message.content == '!help')
+    const Embedcolorred = new Discord.MessageEmbed()
+	.setColor('#ff0000')
+    .setAuthor('!color red')
+    const Embedcolororange = new Discord.MessageEmbed()
+	.setColor('#ff8000')
+    .setAuthor('!color orange')
+    const Embedcoloryellow = new Discord.MessageEmbed()
+	.setColor('#ffff00')
+    .setAuthor('!color yellow')
+    const Embedcolorgreen = new Discord.MessageEmbed()
+	.setColor('#00ff00')
+    .setAuthor('!color green')
+    const Embedcolordarkgreen = new Discord.MessageEmbed()
+	.setColor('#009900')
+    .setAuthor('!color dark green')
+    const Embedcolorteal = new Discord.MessageEmbed()
+	.setColor('#33ff99')
+    .setAuthor('!color teal')
+    const Embedcolorlightblue = new Discord.MessageEmbed()
+	.setColor('#00ffff')
+    .setAuthor('!color light blue')
+    const Embedcolordarkblue = new Discord.MessageEmbed()
+	.setColor('#0000ff')
+    .setAuthor('!color dark blue')
+    const Embedcolorpurple = new Discord.MessageEmbed()
+	.setColor('#7f00ff')
+    .setAuthor('!color purple')
+    const Embedcolorpink = new Discord.MessageEmbed()
+	.setColor('#ff33ff')
+    .setAuthor('!color pink')
+    channel.send(Embedcolorred);
+    channel.send(Embedcolororange);
+    channel.send(Embedcoloryellow);
+    channel.send(Embedcolorgreen);
+    channel.send(Embedcolordarkgreen);
+    channel.send(Embedcolorteal);
+    channel.send(Embedcolorlightblue);
+    channel.send(Embedcolordarkblue);
+    channel.send(Embedcolorpurple);
+    channel.send(Embedcolorpink);
 })
-channel.send(Embedcolorred);
 
 bot.on('guildMemberAdd', (guildMember) => {
     guildMember.roles.add(fan)
