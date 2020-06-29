@@ -85,16 +85,16 @@ bot.on('message', (message) => {
     const Embedcolorpink = new Discord.MessageEmbed()
 	.setColor('#ff33ff')
     .setAuthor('!color pink')
-    channel.send(Embedcolorred);
-    channel.send(Embedcolororange);
-    channel.send(Embedcoloryellow);
-    channel.send(Embedcolorgreen);
-    channel.send(Embedcolordarkgreen);
-    channel.send(Embedcolorteal);
-    channel.send(Embedcolorlightblue);
-    channel.send(Embedcolordarkblue);
-    channel.send(Embedcolorpurple);
-    channel.send(Embedcolorpink);
+    message.channel.send(Embedcolorred);
+    message.channel.send(Embedcolororange);
+    message.channel.send(Embedcoloryellow);
+    message.channel.send(Embedcolorgreen);
+    message.channel.send(Embedcolordarkgreen);
+    message.channel.send(Embedcolorteal);
+    message.channel.send(Embedcolorlightblue);
+    message.channel.send(Embedcolordarkblue);
+    message.channel.send(Embedcolorpurple);
+    message.channel.send(Embedcolorpink);
 }})
 
 bot.on('guildMemberAdd', (guildMember) => {
