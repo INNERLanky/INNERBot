@@ -19,13 +19,46 @@ const warn_4 = '725124499267387452';
 const warn_5 = '725124515503538236';
 const muted = '709822471880179773';
 const fan = '717764459871076361';
+const CLEAR_MESSAGES = '!clear';
 
 console.clear
 console.log("INNERBot_Online");
 //embed help
 //music
-//mute, unmute, kick, ban, warn, 
+//color red orange yellow green dark green teal light blue dark blue purple pink
+//mute unmute kick ban warn
+//clear
 const bot = new Discord.Client();
+
+bot.on('message', (message) => {
+
+const exampleEmbed = new Discord.MessageEmbed()
+	.setColor('#0099ff')
+	.setTitle('Some title')
+	.setURL('https://discord.js.org/')
+	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+	.setDescription('Some description here')
+	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
+	.addFields(
+		{ name: 'Regular field title', value: 'Some value here' },
+		{ name: '\u200B', value: '\u200B' },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
+	)
+	.addField('Inline field title', 'Some value here', true)
+	.setImage('https://i.imgur.com/wSTFkRM.png')
+	.setTimestamp()
+	.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
+
+channel.send(exampleEmbed);
+    })
+
+bot.on('message', (message) => {
+const Embedcolorred = new Discord.MessageEmbed()
+	.setColor('#0099ff')
+	.setAuthor('!color red')
+})
+channel.send(Embedcolorred);
 
 bot.on('guildMemberAdd', (guildMember) => {
     guildMember.roles.add(fan)
@@ -53,6 +86,7 @@ bot.on('message', (message) => {
 
         //If all steps are completed successfully try kick this user
         mentionMember.roles.add(muted)
+        message.reply('user has been muted')
     }}
 
     if(message.content.includes('!unmute')) {
@@ -363,5 +397,44 @@ else{message.member.roles.add(warn_1)}
     else if (message.content == '!roles') {
         console.log(message.guild.roles);
     }
+    
 })
+//!clear
+bot.on('message', message => {
+    if (message.content == CLEAR_MESSAGES) {
+
+      // Check the following permissions before deleting messages:
+      //    1. Check if the user has enough permissions
+      //    2. Check if I have the permission to execute the command
+
+      if (!message.channel.permissionsFor(message.author).hasPermission("MANAGE_MESSAGES")) {
+        message.channel.sendMessage("Sorry, you don't have the permission to execute the command \""+message.content+"\"");
+        console.log("Sorry, you don't have the permission to execute the command \""+message.content+"\"");
+        return;
+      } else if (!message.channel.permissionsFor(bot.user).hasPermission("MANAGE_MESSAGES")) {
+        message.channel.sendMessage("Sorry, I don't have the permission to execute the command \""+message.content+"\"");
+        console.log("Sorry, I don't have the permission to execute the command \""+message.content+"\"");
+        return;
+      }
+
+      // Only delete messages if the channel type is TextChannel
+      // DO NOT delete messages in DM Channel or Group DM Channel
+      if (message.channel.type == 'text') {
+        message.channel.fetchMessages()
+          .then(messages => {
+            message.channel.bulkDelete(messages);
+            messagesDeleted = messages.array().length; // number of messages deleted
+
+            // Logging the number of messages deleted on both the channel and console.
+            message.channel.sendMessage("Deletion of messages successful. Total messages deleted: "+messagesDeleted);
+            console.log('Deletion of messages successful. Total messages deleted: '+messagesDeleted)
+          })
+          .catch(err => {
+            console.log('Error while doing Bulk Delete');
+            console.log(err);
+          });
+      }
+    }
+  });
+
 bot.login(process.env.token)
