@@ -30,73 +30,11 @@ console.log("INNERBot_Online");
 //clear
 const bot = new Discord.Client();
 
-//bot.on('message', (message) => {
-//
-//const exampleEmbed = new Discord.MessageEmbed()
-//	.setColor('#0099ff')
-//	.setTitle('Some title')
-//	.setURL('https://discord.js.org/')
-//	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-//	.setDescription('Some description here')
-//	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
-//	.addFields(
-//		{ name: 'Regular field title', value: 'Some value here' },
-//		{ name: '\u200B', value: '\u200B' },
-//		{ name: 'Inline field title', value: 'Some value here', inline: true },
-//		{ name: 'Inline field title', value: 'Some value here', inline: true },
-//	)
-//	.addField('Inline field title', 'Some value here', true)
-//	.setImage('https://i.imgur.com/wSTFkRM.png')
-//	.setTimestamp()
-//	.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
-//
-//channel.send(exampleEmbed);
-//    })
-
 bot.on('message', (message) => {
-    if (message.content == '!help') {
-    const Embedcolorred = new Discord.MessageEmbed()
-	.setColor('#ff0000')
-    .setAuthor('!color red')
-    const Embedcolororange = new Discord.MessageEmbed()
-	.setColor('#ff8000')
-    .setAuthor('!color orange')
-    const Embedcoloryellow = new Discord.MessageEmbed()
-	.setColor('#ffff00')
-    .setAuthor('!color yellow')
-    const Embedcolorgreen = new Discord.MessageEmbed()
-	.setColor('#00ff00')
-    .setAuthor('!color green')
-    const Embedcolordarkgreen = new Discord.MessageEmbed()
-	.setColor('#009900')
-    .setAuthor('!color dark green')
-    const Embedcolorteal = new Discord.MessageEmbed()
-	.setColor('#33ff99')
-    .setAuthor('!color teal')
-    const Embedcolorlightblue = new Discord.MessageEmbed()
-	.setColor('#00ffff')
-    .setAuthor('!color light blue')
-    const Embedcolordarkblue = new Discord.MessageEmbed()
-	.setColor('#0000ff')
-    .setAuthor('!color dark blue')
-    const Embedcolorpurple = new Discord.MessageEmbed()
-	.setColor('#7f00ff')
-    .setAuthor('!color purple')
-    const Embedcolorpink = new Discord.MessageEmbed()
-	.setColor('#ff33ff')
-    .setAuthor('!color pink')
-    message.channel.send(Embedcolorred);
-    message.channel.send(Embedcolororange);
-    message.channel.send(Embedcoloryellow);
-    message.channel.send(Embedcolorgreen);
-    message.channel.send(Embedcolordarkgreen);
-    message.channel.send(Embedcolorteal);
-    message.channel.send(Embedcolorlightblue);
-    message.channel.send(Embedcolordarkblue);
-    message.channel.send(Embedcolorpurple);
-    message.channel.send(Embedcolorpink);
-}})
-
+    if(message.content == '!help') {//                                                                                                                  red                    orange           yellow                      green               dark green              teal                light blue              dark blue       purple                  pink
+        message.send('Use !color red, orange, yellow, green, dark green, teal, light blue, dark blue, purple, and pink for different colors. \n <&723664452003692604> <&723664555905122374> <&723664739263053885> \n <&723664835799416852> <&723664999398244432> <&723665088396918865> <&723665166608236554> <&723665317460574318> <&723665385655894037> <&723665474369617983>')
+    }
+})
 bot.on('guildMemberAdd', (guildMember) => {
     guildMember.roles.add(fan)
 })
@@ -444,13 +382,9 @@ bot.on('message', message => {
       //    1. Check if the user has enough permissions
       //    2. Check if I have the permission to execute the command
 
-      if (!message.channel.permissionsFor(message.author).hasPermission("MANAGE_MESSAGES")) {
+      if (!message.member.hasPermission("MANAGE_MESSAGES")) {
         message.channel.sendMessage("Sorry, you don't have the permission to execute the command \""+message.content+"\"");
         console.log("Sorry, you don't have the permission to execute the command \""+message.content+"\"");
-        return;
-      } else if (!message.channel.permissionsFor(bot.user).hasPermission("MANAGE_MESSAGES")) {
-        message.channel.sendMessage("Sorry, I don't have the permission to execute the command \""+message.content+"\"");
-        console.log("Sorry, I don't have the permission to execute the command \""+message.content+"\"");
         return;
       }
 
