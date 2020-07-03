@@ -23,8 +23,9 @@ const fan = '717764459871076361';
 console.clear
 console.log("INNERBot_Online");
 
-/**
+//music commands
 bot.on('message', () => {
+  /**
  * Module Imports
  */
 const { Client, Collection } = require("discord.js");
