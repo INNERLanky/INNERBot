@@ -19,12 +19,12 @@ const warn_4 = '725124499267387452';
 const warn_5 = '725124515503538236';
 const muted = '709822471880179773';
 const fan = '717764459871076361';
-const CLEAR_MESSAGES = '!clear';
 
 console.clear
 console.log("INNERBot_Online");
 
 /**
+bot.on('message', () => {
  * Module Imports
  */
 const { Client, Collection } = require("discord.js");
@@ -103,18 +103,21 @@ client.on("message", async (message) => {
   }
 });
 
+})
 
-const bot = new Discord.Client();
-
+//help 
 bot.on('message', (message) => {
     if(message.content == '!help') {
         message.reply('Use !color red, orange, yellow, green, dark green, teal, light blue, dark blue, purple, and pink for different colors. \n You can also use !mute, !kick, !ban, and !warn, if you have the permissions to. \n <@&723664452003692604> <@&723664555905122374> <@&723664739263053885> \n <@&723664835799416852> <@&723664999398244432> <@&723665088396918865> \n <@&723665166608236554> <@&723665317460574318> \n <@&723665385655894037> <@&723665474369617983>')
     }
 })
+
+//auto give fan role
 bot.on('guildMemberAdd', (guildMember) => {
     guildMember.roles.add(fan)
 })
 
+//mod/color stuff
 bot.on('message', (message) => {
     if(message.content.includes('!mute')) {
         if(message.channel.type === 'DM') {
@@ -451,37 +454,6 @@ else{message.member.roles.add(warn_1)}
     
 })
 //!clear
-bot.on('message', message => {
-    if (message.content == CLEAR_MESSAGES) {
-
-      // Check the following permissions before deleting messages:
-      //    1. Check if the user has enough permissions
-      //    2. Check if I have the permission to execute the command
-
-      if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-        message.channel.sendMessage("Sorry, you don't have the permission to execute the command \""+message.content+"\"");
-        console.log("Sorry, you don't have the permission to execute the command \""+message.content+"\"");
-        return;
-      }
-
-      // Only delete messages if the channel type is TextChannel
-      // DO NOT delete messages in DM Channel or Group DM Channel
-      if (message.channel.type == 'text') {
-        message.channel.fetchMessages()
-          .then(messages => {
-            message.channel.bulkDelete(messages);
-            messagesDeleted = messages.array().length; // number of messages deleted
-
-            // Logging the number of messages deleted on both the channel and console.
-            message.channel.sendMessage("Deletion of messages successful. Total messages deleted: "+messagesDeleted);
-            console.log('Deletion of messages successful. Total messages deleted: '+messagesDeleted)
-          })
-          .catch(err => {
-            console.log('Error while doing Bulk Delete');
-            console.log(err);
-          });
-      }
-    }
-  });
+//work in progress
 
 bot.login(process.env.token)
