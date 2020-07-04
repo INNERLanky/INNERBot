@@ -49,8 +49,8 @@ const cooldowns = new Collection();
 /**
  * Client Events
  */
-client.on("ready", () => {
-  console.log(`${client.user.username} ready!`);
+client.on('ready', () => {
+  console.log('music ready!');
   client.user.setActivity(`${PREFIX}help`);
 });
 client.on("warn", (info) => console.log(info));
