@@ -25,8 +25,11 @@ const fan = '717764459871076361';
 console.clear
 console.log("INNERBot_Online");
 
-//music commands
-bot.on('message', () => {
+//
+//
+//music commands start
+//
+//
 
   /**
  * Module Imports
@@ -107,7 +110,11 @@ client.on("message", async (message) => {
   }
 });
 
-})
+//
+//
+//music commands end
+//
+//
 
 //help 
 bot.on('message', (message) => {
