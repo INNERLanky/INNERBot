@@ -1,4 +1,6 @@
 const Discord = require('discord.js');
+const bot = new Discord.Client();
+
 
 const forbiddenWords =["shit", "fuck", "bitch", "asshole", "dick", "damn"];
 const Admin = '603011023040938021'
@@ -25,6 +27,8 @@ console.log("INNERBot_Online");
 
 //music commands
 bot.on('message', () => {
+  
+const client = new Discord.Client();
   /**
  * Module Imports
  */
