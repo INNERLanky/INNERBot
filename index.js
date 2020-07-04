@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client();
+const bot = new Discord.bot();
 
 
 const forbiddenWords =["shit", "fuck", "bitch", "asshole", "dick", "damn"];
@@ -34,16 +34,16 @@ console.log("INNERBot_Online");
   /**
  * Module Imports
  */
-const { Client, Collection } = require("discord.js");
+const { bot, Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX } = require("./config.json");
 
-const client = new Client({ disableMentions: "everyone" });
+const bot = new Client({ disableMentions: "everyone" });
 
-client.commands = new Collection();
-client.prefix = PREFIX;
-client.queue = new Map();
+bot.commands = new Collection();
+bot.prefix = PREFIX;
+bot.queue = new Map();
 const cooldowns = new Collection();
 
 /**
@@ -51,10 +51,9 @@ const cooldowns = new Collection();
  */
 bot.on('ready', () => {
   console.log('music ready!');
-  client.user.setActivity(`${PREFIX}help`);
 });
-client.on("warn", (info) => console.log(info));
-client.on("error", console.error);
+bot.on("warn", (info) => console.log(info));
+bot.on("error", console.error);
 
 /**
  * Import all commands
@@ -62,10 +61,10 @@ client.on("error", console.error);
 const commandFiles = readdirSync(join(__dirname, "commands")).filter((file) => file.endsWith(".js"));
 for (const file of commandFiles) {
   const command = require(join(__dirname, "commands", `${file}`));
-  client.commands.set(command.name, command);
+  bot.commands.set(command.name, command);
 }
 
-client.on("message", async (message) => {
+bot.on("message", async (message) => {
   if (message.author.bot) return;
   if (!message.guild) return;
 
@@ -74,8 +73,8 @@ client.on("message", async (message) => {
     const commandName = args.shift().toLowerCase();
 
     const command =
-      client.commands.get(commandName) ||
-      client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
+      bot.commands.get(commandName) ||
+      bot.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
 
     if (!command) return;
 
