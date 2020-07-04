@@ -39,7 +39,7 @@ const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX } = require("./config.json");
 
-const client = new Discord.Client();
+const client = new Client({ disableMentions: "everyone" });
 
 client.commands = new Collection();
 client.prefix = PREFIX;
@@ -49,7 +49,7 @@ const cooldowns = new Collection();
 /**
  * Client Events
  */
-client.on('ready', () => {
+bot.on('ready', () => {
   console.log('music ready!');
   client.user.setActivity(`${PREFIX}help`);
 });
