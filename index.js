@@ -118,7 +118,7 @@ bot.on("message", async (message) => {
 //help 
 bot.on('message', (message) => {
     if(message.content == '!help') {
-        message.reply('Use !color red, orange, yellow, green, dark green, teal, light blue, dark blue, purple, and pink for different colors. \n You can also use !mute, !kick, !ban, and !warn, if you have the permissions to. \n <@&723664452003692604> <@&723664555905122374> <@&723664739263053885> \n <@&723664835799416852> <@&723664999398244432> <@&723665088396918865> \n <@&723665166608236554> <@&723665317460574318> \n <@&723665385655894037> <@&723665474369617983>')
+        message.reply('Use !color red, orange, yellow, green, dark green, teal, light blue, dark blue, purple, and pink for different colors. \n You can also use mute, kick, ban, and warn, if you have the permissions to. \n <@&723664452003692604> <@&723664555905122374> <@&723664739263053885> \n <@&723664835799416852> <@&723664999398244432> <@&723665088396918865> \n <@&723665166608236554> <@&723665317460574318> \n <@&723665385655894037> <@&723665474369617983>')
     }
 })
 
@@ -143,7 +143,7 @@ bot.on('message', (message) => {
         let mentionMember = message.mentions.members.first();
         //If user dont mention a member, that show him this error msg
         if(!mentionMember) {
-            message.channel.send('mention the member you would like to warn');
+            message.channel.send('mention the member you would like to mute');
             return;
         }
         ;
