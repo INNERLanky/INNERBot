@@ -1,26 +1,6 @@
 const Discord = require('discord.js');
 var bot = new Discord.Client();
 
-const forbiddenWords =["shit", "fuck", "bitch", "asshole", "dick", "damn"];
-const Admin = '603011023040938021'
-const RED = '723664452003692604';
-const ORANGE = '723664555905122374';
-const YELLOW = '723664739263053885';
-const GREEN = '723664835799416852';
-const DARK_GREEN = '723664999398244432';
-const TEAL = '723665088396918865';
-const LIGHT_BLUE = '723665166608236554';
-const DARK_BLUE = '723665317460574318';
-const PURPLE = '723665385655894037';
-const PINK = '723665474369617983';
-const warn_1 = '725124364315394100';
-const warn_2 = '725124418568716360';
-const warn_3 = '725124483668639794';
-const warn_4 = '725124499267387452';
-const warn_5 = '725124515503538236';
-const muted = '709822471880179773';
-const fan = '717764459871076361';
-
 console.clear
 console.log("INNERBot_Online");
 
@@ -118,7 +98,7 @@ bot.on("message", async (message) => {
 //help 
 bot.on('message', (message) => {
     if(message.content == '!help') {
-        message.reply('Use !color red, orange, yellow, green, dark green, teal, light blue, dark blue, purple, and pink for different colors. \n You can also use mute, kick, ban, and warn, if you have the permissions to. \n <@&723664452003692604> <@&723664555905122374> <@&723664739263053885> \n <@&723664835799416852> <@&723664999398244432> <@&723665088396918865> \n <@&723665166608236554> <@&723665317460574318> \n <@&723665385655894037> <@&723665474369617983>')
+        message.reply(HelpCommand)
     }
 })
 
