@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-var bot = new Discord.bot();
+const bot = new Discord.bot();
 
 
 const forbiddenWords =["shit", "fuck", "bitch", "asshole", "dick", "damn"];
@@ -39,7 +39,7 @@ const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX } = require("./config.json");
 
-var bot = new Client({ disableMentions: "everyone" });
+//const bot = new Client({ disableMentions: "everyone" });
 
 bot.commands = new Collection();
 bot.prefix = PREFIX;
