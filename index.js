@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
-const bot = new Discord.bot();
-
+const bot = new Discord.Client();
 
 const forbiddenWords =["shit", "fuck", "bitch", "asshole", "dick", "damn"];
 const Admin = '603011023040938021'
@@ -25,6 +24,7 @@ const fan = '717764459871076361';
 console.clear
 console.log("INNERBot_Online");
 
+
 //
 //
 //music commands start
@@ -39,7 +39,7 @@ const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX } = require("./config.json");
 
-//const bot = new Client({ disableMentions: "everyone" });
+var bot = new Client({ disableMentions: "everyone" });
 
 bot.commands = new Collection();
 bot.prefix = PREFIX;
