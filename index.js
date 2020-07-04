@@ -39,7 +39,7 @@ const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX } = require("./config.json");
 
-const client = new Discord.Client({ disableMentions: "everyone" });
+const client = new Discord.Client();
 
 client.commands = new Collection();
 client.prefix = PREFIX;
