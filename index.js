@@ -27,8 +27,7 @@ console.log("INNERBot_Online");
 
 //music commands
 bot.on('message', () => {
-  
-const client = new Discord.Client();
+
   /**
  * Module Imports
  */
