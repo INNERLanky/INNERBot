@@ -3,7 +3,7 @@ var bot = new Discord.Client();
 
 const HelpCommand = 'Use !color red, orange, yellow, green, dark green, teal, light blue, dark blue, purple, and pink for different colors. \n You can also use mute, kick, ban, and warn, if you have the permissions to. \n <@&723664452003692604> <@&723664555905122374> <@&723664739263053885> \n <@&723664835799416852> <@&723664999398244432> <@&723665088396918865> \n <@&723665166608236554> <@&723665317460574318> \n <@&723665385655894037> <@&723665474369617983> \n For music, use the commands, or what is in the () for short. \n !play = adds a song to the queue \n !pause = pauses the song \n !resume = resumes the song (r) \n !playlist (pl) = plays a playlist \n !loop (l) = loops the song you are listening to \n !np = shows what is now playing (p) \n !queue (q) = shows what is in the queue \n !shuffle = shuffles all songs in the queue \n !volume (v) = changes the volume by % \n !skip (s) = skips the song you are on \n !stop = bot leaves the channel'
 
-const forbiddenWords =["shit", "fuck", "bitch", "asshole", "dick", "damn"];
+const forbiddenWords =["fuck", "bitch", "asshole", "dick", "damn", "cunt"];
 const Admin = '603011023040938021'
 const RED = '723664452003692604';
 const ORANGE = '723664555905122374';
