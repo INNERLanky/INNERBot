@@ -5,6 +5,7 @@ const HelpCommand = 'Use !color red, orange, yellow, green, dark green, teal, li
 
 const forbiddenWords =["fuck", "bitch", "asshole", "dick", "damn", "cunt", "pussy", "sperm"];
 const Admin = '603011023040938021'
+const Moderator = '692837751690756116'
 const RED = '723664452003692604';
 const ORANGE = '723664555905122374';
 const YELLOW = '723664739263053885';
@@ -139,7 +140,7 @@ bot.on('message', (message) => {
         };
 
         //Then check if user have permissions to do that
-        if(message.member.roles.cache.has(Admin)) {
+        if(message.member.roles.cache.has(Moderator)) {
 
             //const a member, wich you need yo kick (its fist mention message member)
         let mentionMember = message.mentions.members.first();
@@ -163,7 +164,7 @@ bot.on('message', (message) => {
         };
 
         //Then check if user have permissions to do that
-        if(message.member.roles.cache.has(Admin)) {
+        if(message.member.roles.cache.has(Moderator)) {
 
             //const a member, wich you need yo kick (its fist mention message member)
         let mentionMember = message.mentions.members.first();
@@ -255,7 +256,7 @@ bot.on('message', (message) => {
         };
 
         //Then check if user have permissions to do that
-        if(message.member.roles.cache.has(Admin)) {
+        if(message.member.roles.cache.has(Moderator)) {
 
             //const a member, wich you need yo kick (its fist mention message member)
         let mentionMember = message.mentions.members.first();
@@ -318,9 +319,11 @@ message.reply('user has been warned')
   else {message.member.roles.add(warn_2)}
 }//warn 1 brackets
 else{message.member.roles.add(warn_1)}
-}}
+}}})
 
-    if (message.content == '!color red') {
+  bot.on('message', (message) => {
+    var messagecontent = messagecontent.toLowerCase();
+    if (messagecontent == '!color red') {
         message.member.roles.add(RED);
         message.member.roles.remove(ORANGE);
         message.member.roles.remove(YELLOW);
@@ -334,7 +337,7 @@ else{message.member.roles.add(warn_1)}
         message.reply('Color Assigned');
         console.log('Color Assigned');
     }
-    else if (message.content == '!color orange') {
+    else if (messagecontent == '!color orange') {
         message.member.roles.add(ORANGE);
         message.member.roles.remove(RED);
         message.member.roles.remove(YELLOW);
@@ -348,7 +351,7 @@ else{message.member.roles.add(warn_1)}
         message.reply('Color Assigned');
         console.log('Color Assigned');
     }
-    else if (message.content == '!color yellow') {
+    else if (messagecontent == '!color yellow') {
         message.member.roles.add(YELLOW);
         message.member.roles.remove(RED);
         message.member.roles.remove(ORANGE);
@@ -362,7 +365,7 @@ else{message.member.roles.add(warn_1)}
         message.reply('Color Assigned');
         console.log('Color Assigned');
     }
-    else if (message.content == '!color green') {
+    else if (messagecontent == '!color green') {
         message.member.roles.add(GREEN);
         message.member.roles.remove(RED);
         message.member.roles.remove(ORANGE);
@@ -376,7 +379,7 @@ else{message.member.roles.add(warn_1)}
         message.reply('Color Assigned');
         console.log('Color Assigned');
     }
-    else if (message.content == '!color dark green') {
+    else if (messagecontent == '!color dark green') {
         message.member.roles.add(DARK_GREEN);
         message.member.roles.remove(RED);
         message.member.roles.remove(ORANGE);
@@ -390,7 +393,7 @@ else{message.member.roles.add(warn_1)}
         message.reply('Color Assigned');
         console.log('Color Assigned');
     }
-    else if (message.content == '!color teal') {
+    else if (messagecontent == '!color teal') {
         message.member.roles.add(TEAL);
         message.member.roles.remove(RED);
         message.member.roles.remove(ORANGE);
@@ -404,7 +407,7 @@ else{message.member.roles.add(warn_1)}
         message.reply('Color Assigned');
         console.log('Color Assigned');
     }
-    else if (message.content == '!color light blue') {
+    else if (messagecontent == '!color light blue') {
         message.member.roles.add(LIGHT_BLUE);
         message.member.roles.remove(RED);
         message.member.roles.remove(ORANGE);
@@ -418,7 +421,7 @@ else{message.member.roles.add(warn_1)}
         message.reply('Color Assigned');
         console.log('Color Assigned');
     }
-    else if (message.content == '!color dark blue') {
+    else if (messagecontent == '!color dark blue') {
         message.member.roles.add(DARK_BLUE);
         message.member.roles.remove(RED);
         message.member.roles.remove(ORANGE);
@@ -432,7 +435,7 @@ else{message.member.roles.add(warn_1)}
         message.reply('Color Assigned');
         console.log('Color Assigned');
     }
-    else if (message.content == '!color purple') {
+    else if (messagecontent == '!color purple') {
         message.member.roles.add(PURPLE);
         message.member.roles.remove(RED);
         message.member.roles.remove(ORANGE);
@@ -446,7 +449,7 @@ else{message.member.roles.add(warn_1)}
         message.reply('Color Assigned');
         console.log('Color Assigned');
     }
-    else if (message.content == '!color pink') {
+    else if (messagecontent == '!color pink') {
         message.member.roles.add(PINK);
         message.member.roles.remove(RED);
         message.member.roles.remove(ORANGE);
@@ -463,8 +466,8 @@ else{message.member.roles.add(warn_1)}
     else if (message.content == '!roles') {
         console.log(message.guild.roles);
     }
+  })
     
-})
 //!clear
 //work in progress
 
