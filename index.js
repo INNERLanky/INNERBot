@@ -121,7 +121,7 @@ bot.on("message", async (message) => {
 //help 
 bot.on('message', (message) => {
     if(message.content == '!help') {
-        message.reply(HelpCommand)
+        message.channel.send(HelpCommand)
     }
 })
 
@@ -130,7 +130,7 @@ bot.on('guildMemberAdd', (guildMember) => {
     guildMember.roles.add(fan)
 })
 
-//mod/color stuff
+//mod
 bot.on('message', (message) => {
     if(message.content.includes('!mute')) {
         if(message.channel.type === 'DM') {
@@ -232,10 +232,14 @@ bot.on('message', (message) => {
         let mentionMember = message.mentions.members.first();
         //If user dont mention a member, that show him this error msg
         if(!mentionMember) {
-            message.channel.send('mention the member you woud like to ban');
+            message.channel.send('mention the member you would like to ban');
             return;
         }
-
+        if(mentionMember.roles.cache.has.Moderator) {
+          message.channel.send('You dont have permissions to ban this user');
+          return;
+        }
+        
         //Check if your bot can`t kick this user, so that show this error msg 
         if(!mentionMember.bannable) {
             message.channel.send('I dont have permissions to ban this user');
@@ -320,7 +324,7 @@ message.reply('user has been warned')
 }//warn 1 brackets
 else{message.member.roles.add(warn_1)}
 }}})
-
+//color stuff
   bot.on('message', (message) => {
     var messagecontent = message.content.toLowerCase();
     if (messagecontent == '!color red') {
