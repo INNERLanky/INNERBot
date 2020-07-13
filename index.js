@@ -27,6 +27,23 @@ console.clear
 console.log("INNERBot_Online");
 
 
+//setup command
+bot.on('message', (message) =>
+{
+if(message.content == '!setup') {
+  guild.roles.create({
+    data: {
+      name: 'red',
+      color: 'ff0000',
+    },
+    reason: 'setup command by INNERBot',
+  })
+    .then(console.log)
+    .catch(console.error);
+}
+})
+
+
 //
 //
 //music commands start
