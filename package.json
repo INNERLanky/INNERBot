@@ -6,11 +6,11 @@
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
     "discord.js": "^12.2.0",
-    "ffmpeg-static": "^4.2.3",
     "simple-youtube-api": "^5.1.1",
     "soundcloud-downloader": "0.0.9",
-    "ytdl-core": "^3.1.2",
-    "ytdl-core-discord": "^1.2.1"
+    "ytdl-core": "^3.1.0",
+    "ytdl-core-discord": "^1.2.1",
+    "ffmpeg-static": "^4.2.3"
   },
   "scripts": {
     "web": "node index.js"

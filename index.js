@@ -546,7 +546,7 @@ const cooldowns = new Collection();
  * Client Events
  */
 bot.on('ready', () => {
-  console.log('kool');
+  console.log('music ready!');
 });
 bot.on("warn", (info) => console.log(info));
 bot.on("error", console.error);
