@@ -25,121 +25,213 @@ console.log("INNERBot_Online");
 
 //setup
 bot.on('guildCreate', (guild) => {
+  guild.roles.create({
+      data: {
+        name: 'warn_1',
+        color: '#ff0000',
+      },
+      reason: 'setup',
+    })
     guild.roles.create({
+      data: {
+        name: 'warn_2',
+        color: '#ff0000',
+      },
+      reason: 'setup',
+    })
+    guild.roles.create({
+      data: {
+        name: 'warn_3',
+        color: '#ff0000',
+      },
+      reason: 'setup',
+    })
+    guild.roles.create({
+      data: {
+        name: 'warn_4',
+        color: '#ff0000',
+      },
+      reason: 'setup',
+    })
+    guild.roles.create({
+      data: {
+        name: 'warn_5',
+        color: '#ff0000',
+      },
+      reason: 'setup',
+    })
+    guild.roles.create({
+      data: {
+        name: 'MUTED',
+        color: '#ff0000',
+      },
+      reason: 'setup',
+    })
+      guild.roles.create({
         data: {
-          name: 'warn_1',
+          name: 'RED',
           color: '#ff0000',
         },
         reason: 'setup',
       })
       guild.roles.create({
-        data: {
-          name: 'warn_2',
-          color: '#ff0000',
-        },
-        reason: 'setup',
-      })
-      guild.roles.create({
-        data: {
-          name: 'warn_3',
-          color: '#ff0000',
-        },
-        reason: 'setup',
-      })
-      guild.roles.create({
-        data: {
-          name: 'warn_4',
-          color: '#ff0000',
-        },
-        reason: 'setup',
-      })
-      guild.roles.create({
-        data: {
-          name: 'warn_5',
-          color: '#ff0000',
-        },
-        reason: 'setup',
-      })
-      guild.roles.create({
-        data: {
-          name: 'MUTED',
-          color: '#ff0000',
-        },
-        reason: 'setup',
-      })
-        guild.roles.create({
           data: {
-            name: 'RED',
-            color: '#ff0000',
+            name: 'ORANGE',
+            color: '#ff8000',
           },
           reason: 'setup',
         })
         guild.roles.create({
-            data: {
-              name: 'ORANGE',
-              color: '#ff8000',
-            },
-            reason: 'setup',
-          })
-          guild.roles.create({
-            data: {
-              name: 'YELLOW',
-              color: '#ffff00',
-            },
-            reason: 'setup',
-          })
-          guild.roles.create({
-            data: {
-              name: 'GREEN',
-              color: '#00ff00',
-            },
-            reason: 'setup',
-          })
-          guild.roles.create({
-            data: {
-              name: 'DARKGREEN',
-              color: '#009900',
-            },
-            reason: 'setup',
-          })
-          guild.roles.create({
-            data: {
-              name: 'TEAL',
-              color: '#33ff99',
-            },
-            reason: 'setup',
-          })
-          guild.roles.create({
-            data: {
-              name: 'LIGHTBLUE',
-              color: '#00ffff',
-            },
-            reason: 'setup',
-          })
-          guild.roles.create({
-            data: {
-              name: 'DARKBLUE',
-              color: '#3a3aff',
-            },
-            reason: 'setup',
-          })
-          guild.roles.create({
-            data: {
-              name: 'PURPLE',
-              color: '#a736ff',
-            },
-            reason: 'setup',
-          })
-          guild.roles.create({
-            data: {
-              name: 'PINK',
-              color: '#ff33ff',
-            },
-            reason: 'setup',
-          })
-          .then(console.log)("setup complete")
-          .catch(console.error);
+          data: {
+            name: 'YELLOW',
+            color: '#ffff00',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'GREEN',
+            color: '#00ff00',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'DARKGREEN',
+            color: '#009900',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'TEAL',
+            color: '#33ff99',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'LIGHTBLUE',
+            color: '#00ffff',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'DARKBLUE',
+            color: '#3a3aff',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'PURPLE',
+            color: '#a736ff',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'PINK',
+            color: '#ff33ff',
+          },
+          reason: 'setup',
+        })
+        .then(console.log)("setup complete")
+        .catch(console.error);
 })
+
+
+
+//
+//
+//music commands start
+//
+//
+
+  /**
+ * Module Imports
+ */
+const { Client, Collection } = require("discord.js");
+const { readdirSync } = require("fs");
+const { join } = require("path");
+const { PREFIX } = require("./config.json");
+
+var bot = new Client({ disableMentions: "everyone" });
+
+bot.commands = new Collection();
+bot.prefix = PREFIX;
+bot.queue = new Map();
+const cooldowns = new Collection();
+
+/**
+ * Client Events
+ */
+bot.on('ready', () => {
+  console.log('music ready!');
+});
+bot.on("warn", (info) => console.log(info));
+bot.on("error", console.error);
+
+/**
+ * Import all commands
+ */
+const commandFiles = readdirSync(join(__dirname, "commands")).filter((file) => file.endsWith(".js"));
+for (const file of commandFiles) {
+  const command = require(join(__dirname, "commands", `${file}`));
+  bot.commands.set(command.name, command);
+}
+
+bot.on("message", async (message) => {
+  if (message.author.bot) return;
+  if (!message.guild) return;
+
+  if (message.content.startsWith(PREFIX)) {
+    const args = message.content.slice(PREFIX.length).trim().split(/ +/);
+    const commandName = args.shift().toLowerCase();
+
+    const command =
+      bot.commands.get(commandName) ||
+      bot.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
+
+    if (!command) return;
+
+    if (!cooldowns.has(command.name)) {
+      cooldowns.set(command.name, new Collection());
+    }
+
+    const now = Date.now();
+    const timestamps = cooldowns.get(command.name);
+    const cooldownAmount = (command.cooldown || 1) * 1000;
+
+    if (timestamps.has(message.author.id)) {
+      const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+      if (now < expirationTime) {
+        const timeLeft = (expirationTime - now) / 1000;
+        return message.reply(
+          `please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`
+        );
+      }
+    }
+
+    timestamps.set(message.author.id, now);
+    setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+
+    try {
+      command.execute(message, args);
+    } catch (error) {
+      console.error(error);
+      message.reply("There was an error executing that command.").catch(console.error);
+    }
+  }
+});
+
+//
+//
+//music commands end
+//
+//
 
 //help 
 bot.on('message', (message) => {
@@ -150,18 +242,16 @@ bot.on('message', (message) => {
 
 //auto give fan role
 bot.on('guildMemberAdd', (guildMember) => {
-    const fan = '717764459871076361';
     guildMember.roles.add(fan)
 })
 
 //auto not-see for muted
 bot.on('channelCreate', (channel) => {
-    channel.updateOverwrite(channel.guild.roles.cache.find(role => role.name === "MUTED"), { VIEW_CHANNEL: false });
+  channel.updateOverwrite(channel.guild.roles.cache.find(role => role.name === "MUTED"), { VIEW_CHANNEL: false });
 })
 
 //mod
 bot.on('message', (message) => {
-    
 let warn_1 = message.guild.roles.cache.find(role => role.name === "warn_1");
 let warn_2 = message.guild.roles.cache.find(role => role.name === "warn_2");
 let warn_3 = message.guild.roles.cache.find(role => role.name === "warn_3");
@@ -177,7 +267,7 @@ let muted = message.guild.roles.cache.find(role => role.name === "MUTED");
         };
 
         //Then check if user have permissions to do that
-        if(message.member.hasPermission('MUTE_MEMBERS')) {
+        if(message.member.roles.cache.has(Moderator)) {
 
             //const a member, wich you need yo kick (its fist mention message member)
         let mentionMember = message.mentions.members.first();
@@ -201,7 +291,7 @@ let muted = message.guild.roles.cache.find(role => role.name === "MUTED");
         };
 
         //Then check if user have permissions to do that
-        if(message.member.hasPermission('MUTE_MEMBERS')) {
+        if(message.member.roles.cache.has(Moderator)) {
 
             //const a member, wich you need yo kick (its fist mention message member)
         let mentionMember = message.mentions.members.first();
@@ -297,7 +387,7 @@ let muted = message.guild.roles.cache.find(role => role.name === "MUTED");
         };
 
         //Then check if user have permissions to do that
-        if(message.member.hasPermission('MUTE_MEMBERS')) {
+        if(message.member.roles.cache.has(Moderator)) {
 
             //const a member, wich you need yo kick (its fist mention message member)
         let mentionMember = message.mentions.members.first();
@@ -360,11 +450,11 @@ message.reply('user has been warned')
   else {message.member.roles.add(warn_2)}
 }//warn 1 brackets
 else{message.member.roles.add(warn_1)}
-      }}
+}}
 })
 
 //color stuff
-  bot.on('message', (message) => {
+bot.on('message', (message) => {
 let RED = message.guild.roles.cache.find(role => role.name === "RED");
 let ORANGE = message.guild.roles.cache.find(role => role.name === "ORANGE");
 let YELLOW = message.guild.roles.cache.find(role => role.name === "YELLOW");
@@ -520,97 +610,6 @@ let PINK = message.guild.roles.cache.find(role => role.name === "PINK");
         console.log(message.guild.roles);
     }
 })
-
-//
-//
-//music commands start
-//
-//
-
-  /**
- * Module Imports
- */
-const { Client, Collection } = require("discord.js");
-const { readdirSync } = require("fs");
-const { join } = require("path");
-const { PREFIX } = require("./config.json");
-
-var bot = new Client({ disableMentions: "everyone" });
-
-bot.commands = new Collection();
-bot.prefix = PREFIX;
-bot.queue = new Map();
-const cooldowns = new Collection();
-
-/**
- * Client Events
- */
-bot.on('ready', () => {
-  console.log('music ready!');
-});
-bot.on("warn", (info) => console.log(info));
-bot.on("error", console.error);
-
-/**
- * Import all commands
- */
-const commandFiles = readdirSync(join(__dirname, "commands")).filter((file) => file.endsWith(".js"));
-for (const file of commandFiles) {
-  const command = require(join(__dirname, "commands", `${file}`));
-  bot.commands.set(command.name, command);
-}
-
-bot.on("message", async (message) => {
-  if (message.author.bot) return;
-  if (!message.guild) return;
-
-  if (message.content.startsWith(PREFIX)) {
-    const args = message.content.slice(PREFIX.length).trim().split(/ +/);
-    const commandName = args.shift().toLowerCase();
-
-    const command =
-      bot.commands.get(commandName) ||
-      bot.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(commandName));
-
-    if (!command) return;
-
-    if (!cooldowns.has(command.name)) {
-      cooldowns.set(command.name, new Collection());
-    }
-
-    const now = Date.now();
-    const timestamps = cooldowns.get(command.name);
-    const cooldownAmount = (command.cooldown || 1) * 1000;
-
-    if (timestamps.has(message.author.id)) {
-      const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
-
-      if (now < expirationTime) {
-        const timeLeft = (expirationTime - now) / 1000;
-        return message.reply(
-          `please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`
-        );
-      }
-    }
-
-    timestamps.set(message.author.id, now);
-    setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
-
-    try {
-      command.execute(message, args);
-    } catch (error) {
-      console.error(error);
-      message.reply("There was an error executing that command.").catch(console.error);
-    }
-  }
-});
-
-//
-//
-//music commands end
-//
-//
-
     
 //!clear
 //work in progress
