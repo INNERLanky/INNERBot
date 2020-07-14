@@ -241,9 +241,9 @@ bot.on('message', (message) => {
 })
 
 //auto give fan role
-bot.on('guildMemberAdd', (guildMember) => {
-    guildMember.roles.add(fan)
-})
+//bot.on('guildMemberAdd', (guildMember) => {
+//    guildMember.roles.add(fan)
+//})
 
 //auto not-see for muted
 bot.on('channelCreate', (channel) => {
