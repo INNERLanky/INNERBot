@@ -25,7 +25,6 @@ console.log("INNERBot_Online");
 
 //setup
 bot.on('guildCreate', (guild) => {
-  console.log('shit! this thing works!')
   guild.roles.create({
       data: {
         name: 'warn_1',
@@ -242,9 +241,10 @@ bot.on('message', (message) => {
 })
 
 //auto give fan role
-//bot.on('guildMemberAdd', (guildMember) => {
-//    guildMember.roles.add(fan)
-//})
+bot.on('guildMemberAdd', (guildMember) => {
+  const fan = '717764459871076361';
+  guildMember.roles.add(fan)
+})
 
 //auto not-see for muted
 bot.on('channelCreate', (channel) => {
