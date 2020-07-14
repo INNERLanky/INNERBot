@@ -24,9 +24,9 @@ console.clear
 console.log("INNERBot_Online");
 
 //setup
-bot.on('message', (message) => {
+bot.on('guildCreate', (guild) => {
   console.log('joined new server')
-  message.guild.roles.create({
+  guild.roles.create({
       data: {
         name: 'warn_1',
         color: '#ff0000',
