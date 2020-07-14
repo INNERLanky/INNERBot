@@ -24,8 +24,8 @@ console.clear
 console.log("INNERBot_Online");
 
 //setup
-bot.on('guildCreate', guild => {
-  console.log('joined new server')
+bot.on('guildCreate', (guild) => {
+  console.log('shit! this thing works!')
   guild.roles.create({
       data: {
         name: 'warn_1',
@@ -268,7 +268,7 @@ let muted = message.guild.roles.cache.find(role => role.name === "MUTED");
         };
 
         //Then check if user have permissions to do that
-        if(message.member.roles.cache.has(Moderator)) {
+        if(message.member.hasPermission('MUTE_MEMBERS')) {
 
             //const a member, wich you need yo kick (its fist mention message member)
         let mentionMember = message.mentions.members.first();
@@ -292,7 +292,7 @@ let muted = message.guild.roles.cache.find(role => role.name === "MUTED");
         };
 
         //Then check if user have permissions to do that
-        if(message.member.roles.cache.has(Moderator)) {
+        if(message.member.hasPermission('MUTE_MEMBERS')) {
 
             //const a member, wich you need yo kick (its fist mention message member)
         let mentionMember = message.mentions.members.first();
@@ -388,7 +388,7 @@ let muted = message.guild.roles.cache.find(role => role.name === "MUTED");
         };
 
         //Then check if user have permissions to do that
-        if(message.member.roles.cache.has(Moderator)) {
+        if(message.member.hasPermission('MUTE_MEMBERS')) {
 
             //const a member, wich you need yo kick (its fist mention message member)
         let mentionMember = message.mentions.members.first();
