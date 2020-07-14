@@ -24,7 +24,7 @@ console.clear
 console.log("INNERBot_Online");
 
 //setup
-bot.on('guildCreate', (guild) => {
+bot.on('guildCreate', guild => {
   console.log('joined new server')
   guild.roles.create({
       data: {
