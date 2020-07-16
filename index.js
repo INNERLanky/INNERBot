@@ -25,120 +25,120 @@ console.log("INNERBot_Online");
 
 //setup
 bot.on('guildCreate', (guild) => {
-  guild.roles.create({
-      data: {
-        name: 'warn_1',
-        color: '#ff0000',
-      },
-      reason: 'setup',
-    })
     guild.roles.create({
-      data: {
-        name: 'warn_2',
-        color: '#ff0000',
-      },
-      reason: 'setup',
-    })
-    guild.roles.create({
-      data: {
-        name: 'warn_3',
-        color: '#ff0000',
-      },
-      reason: 'setup',
-    })
-    guild.roles.create({
-      data: {
-        name: 'warn_4',
-        color: '#ff0000',
-      },
-      reason: 'setup',
-    })
-    guild.roles.create({
-      data: {
-        name: 'warn_5',
-        color: '#ff0000',
-      },
-      reason: 'setup',
-    })
-    guild.roles.create({
-      data: {
-        name: 'MUTED',
-        color: '#ff0000',
-      },
-      reason: 'setup',
-    })
-      guild.roles.create({
         data: {
-          name: 'RED',
+          name: 'warn_1',
           color: '#ff0000',
         },
         reason: 'setup',
       })
       guild.roles.create({
+        data: {
+          name: 'warn_2',
+          color: '#ff0000',
+        },
+        reason: 'setup',
+      })
+      guild.roles.create({
+        data: {
+          name: 'warn_3',
+          color: '#ff0000',
+        },
+        reason: 'setup',
+      })
+      guild.roles.create({
+        data: {
+          name: 'warn_4',
+          color: '#ff0000',
+        },
+        reason: 'setup',
+      })
+      guild.roles.create({
+        data: {
+          name: 'warn_5',
+          color: '#ff0000',
+        },
+        reason: 'setup',
+      })
+      guild.roles.create({
+        data: {
+          name: 'MUTED',
+          color: '#ff0000',
+        },
+        reason: 'setup',
+      })
+        guild.roles.create({
           data: {
-            name: 'ORANGE',
-            color: '#ff8000',
+            name: 'RED',
+            color: '#ff0000',
           },
           reason: 'setup',
         })
         guild.roles.create({
-          data: {
-            name: 'YELLOW',
-            color: '#ffff00',
-          },
-          reason: 'setup',
-        })
-        guild.roles.create({
-          data: {
-            name: 'GREEN',
-            color: '#00ff00',
-          },
-          reason: 'setup',
-        })
-        guild.roles.create({
-          data: {
-            name: 'DARKGREEN',
-            color: '#009900',
-          },
-          reason: 'setup',
-        })
-        guild.roles.create({
-          data: {
-            name: 'TEAL',
-            color: '#33ff99',
-          },
-          reason: 'setup',
-        })
-        guild.roles.create({
-          data: {
-            name: 'LIGHTBLUE',
-            color: '#00ffff',
-          },
-          reason: 'setup',
-        })
-        guild.roles.create({
-          data: {
-            name: 'DARKBLUE',
-            color: '#3a3aff',
-          },
-          reason: 'setup',
-        })
-        guild.roles.create({
-          data: {
-            name: 'PURPLE',
-            color: '#a736ff',
-          },
-          reason: 'setup',
-        })
-        guild.roles.create({
-          data: {
-            name: 'PINK',
-            color: '#ff33ff',
-          },
-          reason: 'setup',
-        })
-        .then(console.log)("setup complete")
-        .catch(console.error);
+            data: {
+              name: 'ORANGE',
+              color: '#ff8000',
+            },
+            reason: 'setup',
+          })
+          guild.roles.create({
+            data: {
+              name: 'YELLOW',
+              color: '#ffff00',
+            },
+            reason: 'setup',
+          })
+          guild.roles.create({
+            data: {
+              name: 'GREEN',
+              color: '#00ff00',
+            },
+            reason: 'setup',
+          })
+          guild.roles.create({
+            data: {
+              name: 'DARKGREEN',
+              color: '#009900',
+            },
+            reason: 'setup',
+          })
+          guild.roles.create({
+            data: {
+              name: 'TEAL',
+              color: '#33ff99',
+            },
+            reason: 'setup',
+          })
+          guild.roles.create({
+            data: {
+              name: 'LIGHTBLUE',
+              color: '#00ffff',
+            },
+            reason: 'setup',
+          })
+          guild.roles.create({
+            data: {
+              name: 'DARKBLUE',
+              color: '#3a3aff',
+            },
+            reason: 'setup',
+          })
+          guild.roles.create({
+            data: {
+              name: 'PURPLE',
+              color: '#a736ff',
+            },
+            reason: 'setup',
+          })
+          guild.roles.create({
+            data: {
+              name: 'PINK',
+              color: '#ff33ff',
+            },
+            reason: 'setup',
+          })
+          .then(console.log)("setup complete")
+          .catch(console.error);
 })
 
 
@@ -242,17 +242,17 @@ bot.on('message', (message) => {
 
 //auto give fan role
 bot.on('guildMemberAdd', (guildMember) => {
-  const fan = '717764459871076361';
-  guildMember.roles.add(fan)
+    const fan = '717764459871076361';
+    guildMember.roles.add(fan)
 })
 
 //auto not-see for muted
 bot.on('channelCreate', (channel) => {
-  channel.updateOverwrite(channel.guild.roles.cache.find(role => role.name === "MUTED"), { VIEW_CHANNEL: false });
+    channel.updateOverwrite(channel.guild.roles.cache.find(role => role.name === "MUTED"), { VIEW_CHANNEL: false });
 })
 
 //mod
-bot.on('message', (message) => {
+bot.on('message', (message) => { 
 let warn_1 = message.guild.roles.cache.find(role => role.name === "warn_1");
 let warn_2 = message.guild.roles.cache.find(role => role.name === "warn_2");
 let warn_3 = message.guild.roles.cache.find(role => role.name === "warn_3");
@@ -451,11 +451,11 @@ message.reply('user has been warned')
   else {message.member.roles.add(warn_2)}
 }//warn 1 brackets
 else{message.member.roles.add(warn_1)}
-}}
+      }}
 })
 
 //color stuff
-bot.on('message', (message) => {
+  bot.on('message', (message) => {
 let RED = message.guild.roles.cache.find(role => role.name === "RED");
 let ORANGE = message.guild.roles.cache.find(role => role.name === "ORANGE");
 let YELLOW = message.guild.roles.cache.find(role => role.name === "YELLOW");
@@ -615,4 +615,4 @@ let PINK = message.guild.roles.cache.find(role => role.name === "PINK");
 //!clear
 //work in progress
 
-bot.login(process.env.token)
+bot.login('NzE3ODY3NTE5NzI1MjczMjI2.Xw458g.LngqZZlPw_oa1hZmJEKQxvnIvDE')
