@@ -615,4 +615,4 @@ let PINK = message.guild.roles.cache.find(role => role.name === "PINK");
 //!clear
 //work in progress
 
-bot.login('NzE3ODY3NTE5NzI1MjczMjI2.Xw458g.LngqZZlPw_oa1hZmJEKQxvnIvDE')
+bot.login(process.env.token)
