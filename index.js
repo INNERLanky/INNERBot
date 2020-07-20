@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 var bot = new Discord.Client();
-
+const client = new Discord.Client();
 const HelpCommand = 'Use !color + [color name] to change the color of your name. \n<:red:731642274387198023> red \n<:orange:731642274340929608> orange \n<:yellow:731642273871298676> yellow \n<:green:731642274022293616> green \n<:darkgreen:731642272461881375> dark green \n<:teal:731642267101691984> teal \n<:lightblue:731642265054871594> light blue \n<:darkblue:731642264094244965> dark blue \n<:purple:731642261934178477> purple \n<:pink:731642260537475077> pink. \nFor music, use the commands, or what is in the () for short. \n!play = adds a song to the queue \n!pause = pauses the song \n!resume = resumes the song (r) \n!playlist (pl) = plays a playlist \n!loop (l) = loops the song you are listening to \n!np = shows what is now playing (p) \n!queue (q) = shows what is in the queue \n!shuffle = shuffles all songs in the queue \n!volume (v) = changes the volume by % \n!skip (s) = skips the song you are on \n!stop = bot leaves the channel \n \nYou can also use mute, kick, ban, and warn, if you have the permissions to.\n \nView my source code here: https://github.com/innerlanky/innerbot'
 
 //let RED = message.guild.roles.cache.find(role => role.name === "RED");
