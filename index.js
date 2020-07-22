@@ -25,6 +25,7 @@ console.log("INNERBot_Online");
 //setup
 bot.on("message", message => {
   if(message.content == ('!setup')) {
+    message.reply('setup in progress')
     let role = message.guild.roles.cache.find(x => x.name === "RED");
     if (typeof role === undefined) {
     message.channel.send('Setup Complete!')
