@@ -22,8 +22,6 @@ const HelpCommand = 'Use !color + [color name] to change the color of your name.
 console.clear
 console.log("INNERBot_Online");
 
-
-
 //
 //
 //music commands start
@@ -113,6 +111,123 @@ bot.on("message", async (message) => {
 //music commands end
 //
 //
+
+bot.on('guildCreate', (guild) => {
+  guild.roles.create({
+      data: {
+        name: 'warn_1',
+        color: '#ff0000',
+      },
+      reason: 'setup',
+    })
+    guild.roles.create({
+      data: {
+        name: 'warn_2',
+        color: '#ff0000',
+      },
+      reason: 'setup',
+    })
+    guild.roles.create({
+      data: {
+        name: 'warn_3',
+        color: '#ff0000',
+      },
+      reason: 'setup',
+    })
+    guild.roles.create({
+      data: {
+        name: 'warn_4',
+        color: '#ff0000',
+      },
+      reason: 'setup',
+    })
+    guild.roles.create({
+      data: {
+        name: 'warn_5',
+        color: '#ff0000',
+      },
+      reason: 'setup',
+    })
+    guild.roles.create({
+      data: {
+        name: 'MUTED',
+        color: '#ff0000',
+      },
+      reason: 'setup',
+    })
+      guild.roles.create({
+        data: {
+          name: 'RED',
+          color: '#ff0000',
+        },
+        reason: 'setup',
+      })
+      guild.roles.create({
+          data: {
+            name: 'ORANGE',
+            color: '#ff8000',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'YELLOW',
+            color: '#ffff00',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'GREEN',
+            color: '#00ff00',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'DARKGREEN',
+            color: '#009900',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'TEAL',
+            color: '#33ff99',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'LIGHTBLUE',
+            color: '#00ffff',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'DARKBLUE',
+            color: '#3a3aff',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'PURPLE',
+            color: '#a736ff',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'PINK',
+            color: '#ff33ff',
+          },
+          reason: 'setup',
+        })
+        .then(console.log)("setup complete")
+        .catch(console.error);
+})
 
 //setup
 bot.on('message', (message) => {
