@@ -225,7 +225,7 @@ bot.on('guildCreate', (guild) => {
           },
           reason: 'setup',
         })
-        .then(console.log)("setup complete")
+        (console.log)("setup complete")
         .catch(console.error);
 })
 
