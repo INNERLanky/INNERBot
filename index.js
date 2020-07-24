@@ -115,7 +115,7 @@ bot.on("message", async (message) => {
 //manual clean up
 bot.on('message', (message) => {
   if(message.content == '!reset')
-message.guild.roles.cache.find(role => role.name === botCreatedRoles).delete();
+message.guild.roles.cache.find.delete(role => role.name === botCreatedRoles);
 })
 
 //auto clean up
