@@ -592,7 +592,6 @@ message.reply('user has been warned')
 }//warn 1 brackets
 else{message.member.roles.add(warn_1)}
       }}
-      console.log('someone used a mod command!')
 })
 
 //color stuff
@@ -608,7 +607,7 @@ let DARK_BLUE = message.guild.roles.cache.find(role => role.name === "DARKBLUE")
 let PURPLE = message.guild.roles.cache.find(role => role.name === "PURPLE");
 let PINK = message.guild.roles.cache.find(role => role.name === "PINK");
     var messagecontent = message.content.toLowerCase();
-    
+
     if(messagecontent.includes('!color')) {
       console.log('someone used a color command!')
     }
