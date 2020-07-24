@@ -119,6 +119,8 @@ bot.on('message', (message) => {
   if(message.member.hasPermission('MANAGE_ROLES')) {
   let botCreatedRolesDelete = message.guild.roles.cache.find(role => role.name === botCreatedRoles);
   botCreatedRolesDelete.delete();
+  message.channel.send('manual reset completed')
+  console.log('manual reset completed')
   }
 })
 
@@ -126,6 +128,7 @@ bot.on('message', (message) => {
 bot.on('guildDelete', (guild) => {
   let botCreatedRolesDelete = guild.roles.cache.find(role => role.name === botCreatedRoles);
   botCreatedRolesDelete.delete();
+  console.log('auto reset completed')
 })
 
 //manual setup
@@ -133,6 +136,8 @@ bot.on('message', (message) => {
   let messagecontent = message.content.toLowerCase
   if(messagecontent == '!setup')
   if(message.member.hasPermission('MANAGE_ROLES')) {
+    message.channel.send('manual setup completed')
+    console.log('manual setup completed')
       guild.roles.create({
           data: {
             name: 'warn_1',
@@ -364,7 +369,7 @@ bot.on('guildCreate', (guild) => {
           },
           reason: 'setup',
         })
-        console.log("setup complete")
+        console.log('auto setup completed')
         .catch(console.error);
 })
 
@@ -587,6 +592,7 @@ message.reply('user has been warned')
 }//warn 1 brackets
 else{message.member.roles.add(warn_1)}
       }}
+      console.log('someone used a mod command!')
 })
 
 //color stuff
@@ -602,6 +608,10 @@ let DARK_BLUE = message.guild.roles.cache.find(role => role.name === "DARKBLUE")
 let PURPLE = message.guild.roles.cache.find(role => role.name === "PURPLE");
 let PINK = message.guild.roles.cache.find(role => role.name === "PINK");
     var messagecontent = message.content.toLowerCase();
+    
+    if(messagecontent.includes('!color')) {
+      console.log('someone used a color command!')
+    }
     if (messagecontent == '!color red') {
         message.member.roles.add(RED);
         message.member.roles.remove(ORANGE);
