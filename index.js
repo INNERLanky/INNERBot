@@ -35,6 +35,7 @@ const { Client, Collection } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { PREFIX } = require("./config.json");
+const { on } = require('process');
 
 var bot = new Client({ disableMentions: "everyone" });
 
@@ -117,7 +118,7 @@ bot.on('message', (message) => {
   let messagecontent = message.content.toLowerCase
   if(messagecontent == '!reset')
   if(message.member.hasPermission('MANAGE_ROLES')) {
-  let botCreatedRolesDelete = message.guild.roles.cache.find(role => role.name === botCreatedRoles);
+  let botCreatedRolesDelete = message.guild.roles.cache.find(role => role.name === 'RED');
   botCreatedRolesDelete.delete();
   message.channel.send('manual reset completed')
   console.log('manual reset completed')
