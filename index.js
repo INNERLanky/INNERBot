@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 var bot = new Discord.Client();
-const HelpCommand = 'Use !color + [color name] to change the color of your name. \n<:red:735185908839612467> red \n<:orange:735185908818772048> orange \n<:yellow:735185908713652324> yellow \n<:green:735185908500004907> green \n<:darkgreen:735185908571308124> dark green \n<:teal:735185907316949082> teal \n<:lightblue:735185906981666949> light blue \n<:darkblue:735185907002507335> dark blue \n<:purple:735185906675351713> purple \n<:pink:735185906784403488> pink. \nFor music, use the commands, or what is in the () for short. \n!play (p) = adds a song to the queue \n!pause = pauses the song \n!resume (r)= resumes the song \n!playlist (pl) = plays a playlist \n!loop (l) = loops the song you are listening to \n!np = shows what is now playing (p) \n!queue (q) = shows what is in the queue \n!shuffle = shuffles all songs in the queue \n!volume (v) = changes the volume by % \n!skip (s) = skips the song you are on \n!stop = bot leaves the channel \n \nYou can also use mute, kick, ban, and warn, if you have the permissions to.\n **Make sure you have your role colors set to default for the color command to work**\n**Make sure the INNERBot role is above Color and Warn roles**\n \nView my source code here: https://github.com/innerlanky/innerbot'
+const HelpCommand = 'Use !color + [color name] to change the color of your name. \n<:red:735185908839612467> red \n<:orange:735185908818772048> orange \n<:yellow:735185908713652324> yellow \n<:green:735185908500004907> green \n<:darkgreen:735185908571308124> dark green \n<:teal:735185907316949082> teal \n<:lightblue:735185906981666949> light blue \n<:darkblue:735185907002507335> dark blue \n<:purple:735185906675351713> purple \n<:pink:735185906784403488> pink. \nFor music, use the commands, or what is in the () for short. \n!play (p) = adds a song to the queue \n!pause = pauses the song \n!resume (r)= resumes the song \n!playlist (pl) = plays a playlist \n!loop (l) = loops the song you are listening to \n!np = shows what is now playing (p) \n!queue (q) = shows what is in the queue \n!shuffle = shuffles all songs in the queue \n!volume (v) = changes the volume by % \n!skip (s) = skips the song you are on \n!stop = bot leaves the channel \n \nYou can also use mute, kick, ban, warn, reset (deletes all bot created roles), and setup (if the auto setup did not work) if you have the permissions to.\n **Make sure you have your role colors set to default for the color command to work**\n**Make sure the INNERBot role is above Color and Warn roles**\n \nView my source code here: https://github.com/innerlanky/innerbot'
 let botCreatedRoles = ['RED', 'ORANGE', 'YELLOW', 'GREEN', 'DARKGREEN', 'TEAL', 'LIGHTBLUE', 'DARKBLUE', 'PURPLE', 'PINK']
 //let RED = message.guild.roles.cache.find(role => role.name === "RED");
 //let ORANGE = message.guild.roles.cache.find(role => role.name === "ORANGE");
@@ -114,16 +114,143 @@ bot.on("message", async (message) => {
 
 //manual clean up
 bot.on('message', (message) => {
-  if(message.content == '!reset')
-message.guild.roles.cache.find.delete(role => role.name === botCreatedRoles);
+  let messagecontent = message.content.toLowerCase
+  if(messagecontent == '!reset')
+  if(message.member.hasPermission('MANAGE_ROLES')) {
+  let botCreatedRolesDelete = message.guild.roles.cache.find(role => role.name === botCreatedRoles);
+  botCreatedRolesDelete.delete();
+  }
 })
 
 //auto clean up
 bot.on('guildDelete', (guild) => {
-guild.roles.cache.find(role => role.name === botCreatedRoles).delete();
+  let botCreatedRolesDelete = guild.roles.cache.find(role => role.name === botCreatedRoles);
+  botCreatedRolesDelete.delete();
 })
 
-//setup
+//manual setup
+bot.on('message', (message) => {
+  let messagecontent = message.content.toLowerCase
+  if(messagecontent == '!setup')
+  if(message.member.hasPermission('MANAGE_ROLES')) {
+      guild.roles.create({
+          data: {
+            name: 'warn_1',
+            color: '#ff0000',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'warn_2',
+            color: '#ff0000',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'warn_3',
+            color: '#ff0000',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'warn_4',
+            color: '#ff0000',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'warn_5',
+            color: '#ff0000',
+          },
+          reason: 'setup',
+        })
+        guild.roles.create({
+          data: {
+            name: 'MUTED',
+            color: '#ff0000',
+          },
+          reason: 'setup',
+        })
+          guild.roles.create({
+            data: {
+              name: 'RED',
+              color: '#ff0000',
+            },
+            reason: 'setup',
+          })
+          guild.roles.create({
+              data: {
+                name: 'ORANGE',
+                color: '#ff8000',
+              },
+              reason: 'setup',
+            })
+            guild.roles.create({
+              data: {
+                name: 'YELLOW',
+                color: '#ffff00',
+              },
+              reason: 'setup',
+            })
+            guild.roles.create({
+              data: {
+                name: 'GREEN',
+                color: '#00ff00',
+              },
+              reason: 'setup',
+            })
+            guild.roles.create({
+              data: {
+                name: 'DARKGREEN',
+                color: '#009900',
+              },
+              reason: 'setup',
+            })
+            guild.roles.create({
+              data: {
+                name: 'TEAL',
+                color: '#33ff99',
+              },
+              reason: 'setup',
+            })
+            guild.roles.create({
+              data: {
+                name: 'LIGHTBLUE',
+                color: '#00ffff',
+              },
+              reason: 'setup',
+            })
+            guild.roles.create({
+              data: {
+                name: 'DARKBLUE',
+                color: '#3a3aff',
+              },
+              reason: 'setup',
+            })
+            guild.roles.create({
+              data: {
+                name: 'PURPLE',
+                color: '#a736ff',
+              },
+              reason: 'setup',
+            })
+            guild.roles.create({
+              data: {
+                name: 'PINK',
+                color: '#ff33ff',
+              },
+              reason: 'setup',
+            })
+            console.log("setup complete")
+            .catch(console.error);
+          }
+})
+
+//auto setup
 bot.on('guildCreate', (guild) => {
   guild.roles.create({
       data: {
