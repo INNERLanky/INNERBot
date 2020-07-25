@@ -113,6 +113,11 @@ bot.on("message", async (message) => {
 //
 //
 
+bot.on('message', (message) => {
+if(message.content == '!invite') {
+  message.channel.send('https://discord.com/oauth2/authorize?client_id=725140503846191114&permissions=8&scope=bot')
+}
+})
 //manual clean up
 bot.on('message', (message) => {
   let messagecontent = message.content.toLowerCase
