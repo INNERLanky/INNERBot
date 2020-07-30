@@ -47,8 +47,8 @@ const cooldowns = new Collection();
 /**
  * Client Events
  */
+console.log('music ready!');
 bot.on('ready', () => {
-  console.log('music ready!');
   bot.user.setActivity('!help', {type: 'PLAYING'})
 });
 bot.on("warn", (info) => console.log(info));
