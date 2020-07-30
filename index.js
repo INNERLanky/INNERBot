@@ -49,7 +49,7 @@ const cooldowns = new Collection();
  */
 bot.on('ready', () => {
   console.log('music ready!');
-  bot.user.setActivity('!help', {type: 'CUSTOM_STATUS'})
+  bot.user.setActivity('!help', {type: 'PLAYING'})
 });
 bot.on("warn", (info) => console.log(info));
 bot.on("error", console.error);
