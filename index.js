@@ -20,7 +20,7 @@ let botCreatedRoles = ['RED', 'ORANGE', 'YELLOW', 'GREEN', 'DARKGREEN', 'TEAL', 
 //let muted = message.guild.roles.cache.find(role => role.name === "MUTED");
 
 console.clear
-console.log("INNERBot_Online");
+console.log("INNERBot Starting...");
 
 //
 //
@@ -114,11 +114,14 @@ bot.on("message", async (message) => {
 //
 //
 
+//invite
+console.log("invite command Online")
 bot.on('message', (message) => {
 if(message.content == '!invite') {
   message.channel.send('https://discord.com/oauth2/authorize?client_id=725140503846191114&permissions=8&scope=bot')
 }
 })
+
 //manual clean up
 bot.on('message', (message) => {
   let messagecontent = message.content.toLowerCase
@@ -139,10 +142,11 @@ bot.on('guildDelete', (guild) => {
 })
 
 //manual setup
+console.log("Manual Setup Online");
 bot.on('message', (message) => {
   let messagecontent = message.content.toLowerCase
   if(messagecontent == '!setup')
-  if(message.member.hasPermission('MANAGE_ROLES')) {
+  if(message.author.id === '738037378509307995') {
     message.channel.send('manual setup completed')
     console.log('manual setup completed')
       guild.roles.create({
@@ -263,6 +267,7 @@ bot.on('message', (message) => {
 })
 
 //auto setup
+console.log("Auto Setup Online");
 bot.on('guildCreate', (guild) => {
   guild.roles.create({
       data: {
@@ -381,6 +386,7 @@ bot.on('guildCreate', (guild) => {
 })
 
 //help 
+console.log("Help Command Online");
 bot.on('message', (message) => {
     if(message.content == '!help') {
         message.channel.send(HelpCommand)
@@ -388,6 +394,7 @@ bot.on('message', (message) => {
 })
 
 //auto give fan role
+console.log("Fan Role Giver Online");
 bot.on('guildMemberAdd', (guildMember) => {
   let fan = guildMember.guild.roles.cache.find(role => role.name === "fan");
     guildMember.roles.add(fan)
@@ -400,6 +407,7 @@ bot.on('channelCreate', (channel) => {
 })
 
 //mod
+console.log("Moderator Online");
 bot.on('message', (message) => { 
 let warn_1 = message.guild.roles.cache.find(role => role.name === "warn_1");
 let warn_2 = message.guild.roles.cache.find(role => role.name === "warn_2");
@@ -766,5 +774,7 @@ let PINK = message.guild.roles.cache.find(role => role.name === "PINK");
     
 //!clear
 //work in progress
+
+console.log("INNERBot Online!");
 
 bot.login(process.env.token)
