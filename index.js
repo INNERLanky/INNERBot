@@ -388,7 +388,7 @@ bot.on('message', (message) => {
 
 //auto give fan role
 bot.on('guildMemberAdd', (guildMember) => {
-    const fan = '717764459871076361';
+  let fan = message.guild.roles.cache.find(role => role.name === "fan");
     guildMember.roles.add(fan)
 })
 
