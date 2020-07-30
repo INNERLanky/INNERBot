@@ -390,6 +390,7 @@ bot.on('message', (message) => {
 bot.on('guildMemberAdd', (guildMember) => {
   let fan = guildMember.guild.roles.cache.find(role => role.name === "fan");
     guildMember.roles.add(fan)
+    console.log('member joined')
 })
 
 //auto not-see for muted
