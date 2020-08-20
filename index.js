@@ -133,6 +133,7 @@ bot.on('guildMemberAdd', (guildMember) => {
 //auto not-see for muted
 bot.on('channelCreate', (channel) => {
     channel.updateOverwrite(channel.guild.roles.cache.find(role => role.name === "Muted"), { VIEW_CHANNEL: false });
+    console.log('New Channel Created')
 })
 
 //mod
