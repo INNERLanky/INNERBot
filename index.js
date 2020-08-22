@@ -503,6 +503,22 @@ let PINK = message.guild.roles.cache.find(role => role.name === "PINK");
 })
     
 //!clear
+bot.on('message', (message) => {
+  const args = message.content.slice(7).trim().split(/ +/);
+  const command = args.shift().toLowerCase();
+  if(message.content.includes == '!clear')
+  if (args[0] && ms(args[0]) == undefined) {
+    message.channel.send("Please Input A Number");
+ }
+ else if (command > 100) {
+  message.channel.reply('Sorry, you can only delete up to 100 messages');
+ }
+  else if (command < 100) {
+    message.channel.bulkDelete(command, true);
+    message.channel.send('Messages Deleted!')
+    message.delete({ timeout: 3000});
+  }
+})
 //work in progress
 
 console.log("INNERBot Online!");
