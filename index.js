@@ -504,10 +504,12 @@ let PINK = message.guild.roles.cache.find(role => role.name === "PINK");
     
 //!clear
 bot.on('message', (message) => {
+  console.log('working')
   const args = message.content.slice(7).trim().split(/ +/);
   const command = args.shift().toLowerCase();
   if(message.content.includes == '!clear') {
-    console.log('Messages Cleared')
+    console.log('Cleared')
+
   if (args[0] && ms(args[0]) == undefined) {
     message.channel.send("Please Input A Number");
  }
