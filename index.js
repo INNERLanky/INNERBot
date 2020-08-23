@@ -506,7 +506,8 @@ let PINK = message.guild.roles.cache.find(role => role.name === "PINK");
 bot.on('message', (message) => {
   const args = message.content.slice(7).trim().split(/ +/);
   const command = args.shift().toLowerCase();
-  if(message.content.includes == '!clear')
+  if(message.content.includes == '!clear') {
+    console.log('Messages Cleared')
   if (args[0] && ms(args[0]) == undefined) {
     message.channel.send("Please Input A Number");
  }
@@ -518,6 +519,7 @@ bot.on('message', (message) => {
     message.channel.send('Messages Deleted!')
     message.delete({ timeout: 3000});
   }
+}
 })
 //work in progress
 
