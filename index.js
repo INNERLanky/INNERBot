@@ -502,7 +502,7 @@ let PINK = message.guild.roles.cache.find(role => role.name === "PINK");
     }
 })
     
-
+//!clear
 //work in progress
 
 console.log("INNERBot Online!");
