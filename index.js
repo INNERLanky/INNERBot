@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 var bot = new Discord.Client();
-const HelpCommand = 'Use !color + [color name] to change the color of your name. \n<:red:745676055372759051> red \n<:orange:745676054169124964> orange \n<:yellow:745676055872012328> yellow \n<:green:745676054017867786> green \n<:darkgreen:745676053795831838> dark green \n<:teal:745676055536205875> teal \n<:lightblue:745676054026518549> light blue \n<:darkblue:745676053577596949> dark blue \n<:purple:745676055683268677> purple \n<:pink:745676055809097728> pink. \nFor music, use the commands, or what is in the () for short. \n!play (p) = adds a song to the queue \n!pause = pauses the song \n!resume (r)= resumes the song \n!playlist (pl) = plays a playlist \n!loop (l) = loops the song you are listening to \n!np = shows what is now playing (p) \n!queue (q) = shows what is in the queue \n!shuffle = shuffles all songs in the queue \n!volume (v) = changes the volume by % \n!skip (s) = skips the song you are on \n!stop = bot leaves the channel \n \nYou can also use mute, kick, ban, warn, if you have the permissions to.\n \nView my source code here: https://github.com/innerlanky/innerbot'
+const HelpCommand = 'Use !color + [color name] to change the color of your name. \n<:red:745676055372759051> red \n<:orange:745676054169124964> orange \n<:yellow:745676055872012328> yellow \n<:green:745676054017867786> green \n<:darkgreen:745676053795831838> dark green \n<:teal:745676055536205875> teal \n<:lightblue:745676054026518549> light blue \n<:darkblue:745676053577596949> dark blue \n<:purple:745676055683268677> purple \n<:pink:745676055809097728> pink. \nFor music, use the commands, or what is in the () for short. \n!play (p) = adds a song to the queue \n!pause = pauses the song \n!resume (r)= resumes the song \n!playlist (pl) = plays a playlist \n!loop (l) = loops the song you are listening to \n!np = shows what is now playing (p) \n!queue (q) = shows what is in the queue \n!shuffle = shuffles all songs in the queue \n!volume (v) = changes the volume by % \n!skip (s) = skips the song you are on \n!stop = bot leaves the channel \n \nYou can also use mute, kick, ban, warn, if you have the permissions to.'
 let botCreatedRoles = ['RED', 'ORANGE', 'YELLOW', 'GREEN', 'DARKGREEN', 'TEAL', 'LIGHTBLUE', 'DARKBLUE', 'PURPLE', 'PINK']
 //let RED = message.guild.roles.cache.find(role => role.name === "RED");
 //let ORANGE = message.guild.roles.cache.find(role => role.name === "ORANGE");
@@ -502,27 +502,7 @@ let PINK = message.guild.roles.cache.find(role => role.name === "PINK");
     }
 })
     
-//!clear
-bot.on('message', (message) => {
-  console.log('working')
-  const args = message.content.slice(7).trim().split(/ +/);
-  const command = args.shift().toLowerCase();
-  if(message.content.includes == '!clear') {
-    console.log('Cleared')
 
-  if (args[0] && ms(args[0]) == undefined) {
-    message.channel.send("Please Input A Number");
- }
- else if (command > 100) {
-  message.channel.reply('Sorry, you can only delete up to 100 messages');
- }
-  else if (command < 100) {
-    message.channel.bulkDelete(command, true);
-    message.channel.send('Messages Deleted!')
-    message.delete({ timeout: 3000});
-  }
-}
-})
 //work in progress
 
 console.log("INNERBot Online!");
