@@ -113,7 +113,7 @@ bot.on('message', (message) => {
 var message_content_for_wurtz_cuz_hes_super_cool = message.content.toLowerCase();
   if(message_content_for_wurtz_cuz_hes_super_cool == '!wurtz')
   message.channel.send('!play https://www.youtube.com/playlist?list=PLXVFV30PI-f_22Elenx7ywHOD9g8p5UCh')
-  message.delete({ timeout: 200});
+  message.delete({ timeout: 2000});
 })
 
 //
