@@ -144,7 +144,7 @@ let warn_2 = message.guild.roles.cache.find(role => role.name === "warn_2");
 let warn_3 = message.guild.roles.cache.find(role => role.name === "warn_3");
 let warn_4 = message.guild.roles.cache.find(role => role.name === "warn_4");
 let warn_5 = message.guild.roles.cache.find(role => role.name === "warn_5");
-let muted = message.guild.roles.cache.find(role => role.name === "MUTED");
+let muted = message.guild.roles.cache.find(role => role.name === "Muted");
   const forbiddenWords =["fuck", "bitch", "asshole", "dick", "damn", "cunt", "pussy", "sperm"];
     if(message.content.includes('!mute')) {
         if(message.channel.type === 'DM') {
