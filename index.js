@@ -124,9 +124,9 @@ bot.on('message', (message) => {
 
 //mario
 bot.on('voiceStateUpdate', async (oldMember, newMember) => {
-  const newUserChannel = newMember.voice.channelID
-  const oldUserChannel = oldMember.voice.channelID
-  const textChannel = message.guild.channels.cache.get('712677731023716452')
+  //const newUserChannel = newMember.voice.channelID
+  //const oldUserChannel = oldMember.voice.channelID
+  //const textChannel = message.guild.channels.cache.get('712677731023716452')
 
   
     //joined
