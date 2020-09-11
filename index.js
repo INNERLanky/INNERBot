@@ -128,7 +128,7 @@ bot.on('voiceStateUpdate', async (oldMember, newMember) => {
   const oldUserChannel = oldMember.voice.channelID
   const textChannel = message.guild.channels.cache.get('712677731023716452')
 
-  if(newUserChannel === '712677767333937284') {
+  
     //joined
     if (newMember.voice.channel) {
       const connection = await newMember.voice.channel.join();
@@ -136,11 +136,7 @@ bot.on('voiceStateUpdate', async (oldMember, newMember) => {
       dispatcher.on('error', console.error);
     }
     textChannel.send(`${newMember.user.username} (${newMember.id}) has joined the channel`)
-  }
-   else if (oldUserChannel === '712677767333937284' && newUserChannel !== '712677767333937284') {
-    //left
-    textChannel.send(`${newMember.user.username} (${newMember.id}) has left the channel`)
-  }
+  
 })
 
 //auto give fan role
