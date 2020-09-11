@@ -130,12 +130,11 @@ bot.on('voiceStateUpdate', async (oldMember, newMember) => {
 
   
     //joined
-    if (newMember.voice.channel) {
+ 
       const connection = await newMember.voice.channel.join();
       const dispatcher = connection.play('join.mp3');
       dispatcher.on('error', console.error);
-    }
-    textChannel.send(`${newMember.user.username} (${newMember.id}) has joined the channel`)
+    
   
 })
 
