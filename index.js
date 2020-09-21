@@ -122,23 +122,6 @@ bot.on('message', (message) => {
     }
 })
 
-//mario
-bot.on('voiceStateUpdate', async (oldMember, newMember) => {
-  //const newUserChannel = newMember.voice.channelID
-  //const oldUserChannel = oldMember.voice.channelID
- //const textChannel = message.guild.channels.cache.get('712677731023716452')
-
-  
-    //joined
-    if (newMember.voice.channel) {
-      const connection = await newMember.voice.channel.join();
-      const dispatcher = connection.play('join.mp3');
-      dispatcher.on('error', console.error);
-    }
-    textChannel.send(`${newMember.user.username} (${newMember.id}) has joined the channel`)
-  
-})
-
 //auto give fan role
 console.log("Fan Role Giver Online");
 bot.on('guildMemberAdd', (guildMember) => {
