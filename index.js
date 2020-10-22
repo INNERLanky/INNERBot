@@ -125,7 +125,7 @@ bot.on('message', (message) => {
 //auto give fan role
 console.log("Fan Role Giver Online");
 bot.on('guildMemberAdd', (guildMember) => {
-  let fan = guildMember.guild.roles.cache.find(role => role.name === "fan");
+  let fan = guildMember.guild.roles.cache.find(role => role.name === "verified");
     guildMember.roles.add(fan)
     console.log('member joined')
 })
@@ -145,7 +145,7 @@ let warn_3 = message.guild.roles.cache.find(role => role.name === "warn_3");
 let warn_4 = message.guild.roles.cache.find(role => role.name === "warn_4");
 let warn_5 = message.guild.roles.cache.find(role => role.name === "warn_5");
 let muted = message.guild.roles.cache.find(role => role.name === "Muted");
-  const forbiddenWords =["fuck", "bitch", "asshole", "dick", "damn", "cunt", "pussy", "sperm"];
+  const forbiddenWords =["fuck", "bitch", "asshole", "dick", "damn"];
     if(message.content.includes('!mute')) {
         if(message.channel.type === 'DM') {
             //Fist check if message channel is not direct message, because you cant kick out of guide 
@@ -496,9 +496,6 @@ let PINK = message.guild.roles.cache.find(role => role.name === "PINK");
         message.member.roles.remove(PURPLE);
         message.reply('Color Assigned');
         console.log('Color Assigned');
-    }
-    else if (message.content == '!roles') {
-        console.log(message.guild.roles);
     }
 })
     
