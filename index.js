@@ -125,7 +125,7 @@ bot.on('message', (message) => {
 //auto give fan role
 console.log("Fan Role Giver Online");
 bot.on('guildMemberAdd', (guildMember) => {
-  let fan = guildMember.guild.roles.cache.find(role => role.name === "verified");
+  let fan = guildMember.guild.roles.cache.find(role => role.name === "Verified");
     guildMember.roles.add(fan)
     console.log('member joined')
 })
